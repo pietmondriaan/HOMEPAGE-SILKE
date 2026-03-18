@@ -1,0 +1,59 @@
+ANLEITUNG: Nameserver bei Wix auf Cloudflare umstellen
+=======================================================
+Domain: silkeburkhardt.at
+Datum: 14.03.2026
+
+ZIEL: Die Domain silkeburkhardt.at soll über Cloudflare laufen,
+damit die Homepage www.silkeburkhardt.at online geht.
+
+
+SCHRITT 1: Cloudflare-Nameserver herausfinden
+----------------------------------------------
+1. Browser öffnen: https://dash.cloudflare.com
+2. Einloggen mit: m.pietrowski@gmail.com
+3. Links auf "silkeburkhardt.at" klicken
+4. Im Bereich "Nameservers" stehen 2 Cloudflare-Nameserver
+   (z.B. anna.ns.cloudflare.com und bob.ns.cloudflare.com)
+5. Diese 2 Nameserver notieren oder kopieren!
+
+
+SCHRITT 2: Bei Wix einloggen
+------------------------------
+1. Browser öffnen: https://www.wix.com
+2. Einloggen (mit dem Konto, über das silkeburkhardt.at registriert ist)
+3. Oben rechts auf Profilbild klicken
+4. "Domains" auswählen
+
+
+SCHRITT 3: Nameserver bei Wix ändern
+--------------------------------------
+1. Auf "silkeburkhardt.at" klicken
+2. Auf "DNS-Einstellungen" oder "DNS verwalten" klicken
+3. Den Punkt "Nameserver" suchen
+4. "Eigene Nameserver verwenden" oder "Custom Nameservers" auswählen
+5. Die alten Wix-Nameserver LÖSCHEN:
+   - ns8.wixdns.net    <-- LÖSCHEN
+   - ns9.wixdns.net    <-- LÖSCHEN
+6. Die 2 Cloudflare-Nameserver EINTRAGEN (aus Schritt 1)
+   - Nameserver 1: ______.ns.cloudflare.com
+   - Nameserver 2: ______.ns.cloudflare.com
+7. SPEICHERN klicken
+
+
+SCHRITT 4: Warten & Prüfen
+----------------------------
+- Die Umstellung dauert zwischen 1 und 24 Stunden
+- Danach wird silkeburkhardt.at über Cloudflare verwaltet
+- In Cloudflare wird dann der Status von "Pending" auf "Active" wechseln
+
+
+SCHRITT 5: Custom Domain verbinden (macht Michael danach)
+----------------------------------------------------------
+Sobald die Zone in Cloudflare "Active" ist, wird Michael
+www.silkeburkhardt.at mit der Homepage verbinden.
+
+
+WICHTIG:
+- NUR die Nameserver ändern, NICHTS anderes löschen oder ändern
+- Die Domain bleibt vorerst noch bei Wix registriert (Transfer läuft separat)
+- Bei Fragen: Michael fragen
