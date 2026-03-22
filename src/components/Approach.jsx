@@ -25,34 +25,33 @@ export default function Approach() {
   const [ref, isVisible] = useScrollAnimation()
 
   return (
-    <section id="arbeitsweise" className="py-24 lg:py-32 relative overflow-hidden">
+    <section id="arbeitsweise" className="py-16 lg:py-24 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sand-dark/50 to-transparent" />
 
-      {/* Background decoration */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sage/[0.04] rounded-full blur-3xl pointer-events-none translate-x-1/3 translate-y-1/3" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-sage/[0.06] rounded-full blur-3xl pointer-events-none translate-x-1/3 translate-y-1/3" />
 
       <div
         ref={ref}
         className={`max-w-6xl mx-auto px-6 lg:px-8 animate-on-scroll ${isVisible ? 'is-visible' : ''}`}
       >
-        <div className="grid lg:grid-cols-[1fr,1.2fr] gap-16 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-[1fr,1.2fr] gap-12 lg:gap-20 items-start">
           {/* Left Column */}
           <div className="lg:sticky lg:top-28">
-            <p className="text-terra font-medium text-sm tracking-widest uppercase mb-4">
+            <p className="text-terra font-semibold text-sm tracking-widest uppercase mb-3">
               Arbeitsweise
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-medium text-bark leading-tight mb-6">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.5rem] font-medium text-bark leading-snug mb-5">
               Systemisch denken.{' '}
               <em className="text-terra not-italic">Gemeinsam</em>{' '}
               handeln.
             </h2>
-            <p className="text-bark-light text-lg leading-relaxed mb-8">
+            <p className="text-bark-light text-base lg:text-lg leading-relaxed mb-6">
               Mein Ansatz verbindet systemische Theorie mit langjähriger
               Praxiserfahrung. Im Zentrum steht nicht das Problem, sondern
               die Fähigkeit zur Veränderung.
             </p>
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-sage/10 border border-sage/20">
-              <span className="w-3 h-3 rounded-full bg-sage/60" />
+            <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-sage/10 border border-sage/20">
+              <span className="w-2.5 h-2.5 rounded-full bg-sage/60" />
               <span className="text-sm text-bark-light">
                 Systemisch · Lösungsorientiert · Praxisnah
               </span>
@@ -64,22 +63,19 @@ export default function Approach() {
             {steps.map((step, i) => (
               <div
                 key={step.number}
-                className="relative pl-16 pb-12 last:pb-0 group"
+                className="relative pl-16 pb-10 last:pb-0 group"
               >
-                {/* Vertical Line */}
                 {i < steps.length - 1 && (
                   <div className="absolute left-[23px] top-12 bottom-0 w-[1px] bg-gradient-to-b from-sand-dark/60 to-sand-dark/20" />
                 )}
 
-                {/* Number Circle */}
-                <div className="absolute left-0 top-0 w-12 h-12 rounded-full bg-cream border-2 border-sand-dark/40 flex items-center justify-center group-hover:border-terra/50 transition-colors duration-300">
+                <div className="absolute left-0 top-0 w-12 h-12 rounded-full bg-cream border-2 border-sand-dark/40 flex items-center justify-center group-hover:border-terra/50 group-hover:bg-terra/5 transition-colors duration-300">
                   <span className="font-serif text-sm font-medium text-terra">
                     {step.number}
                   </span>
                 </div>
 
-                {/* Content */}
-                <h3 className="font-serif text-xl font-medium text-bark mb-3 pt-2.5">
+                <h3 className="font-serif text-xl font-medium text-bark mb-2 pt-2.5">
                   {step.title}
                 </h3>
                 <p className="text-bark-light text-base leading-relaxed">
