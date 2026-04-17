@@ -12,13 +12,24 @@ export default function About() {
         className={`max-w-6xl mx-auto px-6 lg:px-8 animate-on-scroll ${isVisible ? 'is-visible' : ''}`}
       >
         <div className="grid lg:grid-cols-[0.35fr,1fr] gap-10 lg:gap-16 items-start">
-          {/* Left Column - Label & Visual */}
+          {/* Left Column - Label & Portrait */}
           <div>
             <p className="text-terra font-semibold text-sm tracking-widest uppercase mb-4 lg:sticky lg:top-28">
               Über mich
             </p>
-            <div className="hidden lg:block lg:sticky lg:top-40">
-              <div className="w-28 h-36 bg-gradient-to-br from-sage/20 via-terra/10 to-sand-dark/20 animate-blob mt-4" />
+            <div className="lg:sticky lg:top-40 mt-4">
+              <div className="relative w-56 sm:w-64 lg:w-full max-w-xs">
+                <div className="aspect-[4/5] overflow-hidden animate-blob shadow-xl shadow-terra/15 ring-1 ring-sand-dark/20">
+                  <img
+                    src="/silke-portrait.jpg"
+                    alt="Silke Burkhardt"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="absolute -bottom-3 -right-3 w-14 h-14 bg-sage/25 rounded-full animate-float" />
+                <div className="absolute -top-2 -left-2 w-10 h-10 bg-gold/25 rounded-full animate-float" style={{ animationDelay: '-3s' }} />
+              </div>
             </div>
           </div>
 

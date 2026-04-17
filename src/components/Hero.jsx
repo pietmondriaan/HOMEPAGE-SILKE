@@ -53,12 +53,16 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Visual Element — Decorative Initials */}
-          <div className="hidden lg:flex justify-center animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+          {/* Visual Element — Portrait */}
+          <div className="flex justify-center order-first lg:order-last animate-fade-in mb-6 lg:mb-0" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
             <div className="relative">
-              <div className="w-72 h-80 bg-gradient-to-br from-sand via-sand-dark/50 to-terra/25 animate-blob shadow-2xl shadow-terra/10" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-serif text-7xl text-terra/25 font-medium select-none">SB</span>
+              <div className="w-64 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-96 overflow-hidden animate-blob shadow-2xl shadow-terra/20 ring-1 ring-sand-dark/20">
+                <img
+                  src="/silke-portrait.jpg"
+                  alt="Silke Burkhardt — Systemische Beraterin, Supervisorin, Pädagogin"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
               </div>
               <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-sage/25 rounded-full animate-float" />
               <div className="absolute -top-3 -right-3 w-14 h-14 bg-gold/20 rounded-full animate-float" style={{ animationDelay: '-3s' }} />
