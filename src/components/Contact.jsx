@@ -26,93 +26,127 @@ export default function Contact() {
   }
 
   return (
-    <section id="kontakt" className="py-16 lg:py-24 bg-bark relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-bark-light/30 to-transparent" />
+    <section id="kontakt" className="py-24 lg:py-36 bg-paper relative overflow-hidden">
 
-      <div className="absolute top-0 right-0 w-80 h-80 bg-terra/[0.07] rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-sage/[0.05] rounded-full blur-3xl pointer-events-none" />
+      {/* Blob-Dekorationen */}
+      <div
+        className="absolute -top-20 -right-20 w-[320px] h-[300px] bg-sage/[0.08] pointer-events-none animate-blob-morph"
+        style={{ borderRadius: '55% 45% 62% 38% / 45% 55% 45% 55%' }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -bottom-16 -left-16 w-[240px] h-[220px] bg-sage/[0.06] pointer-events-none animate-blob-morph"
+        style={{ borderRadius: '40% 60% 45% 55% / 55% 45% 60% 40%', animationDelay: '-6s' }}
+        aria-hidden="true"
+      />
 
       <div
         ref={ref}
         className={`max-w-6xl mx-auto px-6 lg:px-8 animate-on-scroll ${isVisible ? 'is-visible' : ''}`}
       >
-        <div className="grid lg:grid-cols-[1fr,1.1fr] gap-12 lg:gap-20">
-          {/* Left Side */}
+        <div className="grid lg:grid-cols-[1fr,1.2fr] gap-14 lg:gap-24">
+
+          {/* Linke Seite */}
           <div>
-            <p className="text-terra font-semibold text-sm tracking-widest uppercase mb-3">
+            <p className="font-sans text-[10px] font-medium tracking-[0.2em] text-sage uppercase mb-6">
               Kontakt
             </p>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.5rem] font-medium text-white leading-snug mb-5">
-              Lassen Sie uns{' '}
-              <em className="text-terra not-italic">sprechen</em>
+
+            <h2
+              className="font-serif font-normal text-bark leading-[1.12] mb-6"
+              style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', textWrap: 'balance' }}
+            >
+              Lassen Sie uns
+              <br />
+              <em>miteinander sprechen.</em>
             </h2>
-            <p className="text-white/60 text-base lg:text-lg leading-relaxed mb-8">
-              Der erste Schritt ist oft der wichtigste. Kontaktieren Sie mich
-              für ein unverbindliches Erstgespräch — ich freue mich darauf,
-              Sie kennenzulernen.
+
+            <p className="text-bark-light text-base leading-[1.75] mb-10">
+              Der erste Schritt ist oft der wichtigste. Kontaktieren Sie mich für
+              ein unverbindliches Erstgespräch — ich freue mich, Sie kennenzulernen.
             </p>
 
             <div className="space-y-5">
+              {/* Telefon */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-terra/15 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg className="w-5 h-5 text-terra" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                <div className="w-10 h-10 rounded-full bg-sage/12 flex items-center justify-center shrink-0 text-sage">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.21 2 2 0 014 .02h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white/40 text-sm mb-0.5">Telefon</p>
-                  <a href="tel:+4306802193868" className="text-white hover:text-terra transition-colors text-lg">
+                  <p className="text-[11px] font-medium tracking-wide text-bark-light/60 uppercase mb-0.5">Telefon</p>
+                  <a href="tel:+4306802193868" className="text-bark hover:text-sage transition-colors duration-[180ms] text-base font-normal">
                     0680 219 38 68
                   </a>
                 </div>
               </div>
 
+              {/* E-Mail */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-terra/15 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg className="w-5 h-5 text-terra" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                <div className="w-10 h-10 rounded-full bg-sage/12 flex items-center justify-center shrink-0 text-sage">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M2 7l10 7 10-7" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white/40 text-sm mb-0.5">Standort</p>
-                  <p className="text-white text-lg">Kärnten, Österreich</p>
+                  <p className="text-[11px] font-medium tracking-wide text-bark-light/60 uppercase mb-0.5">E-Mail</p>
+                  <a href="mailto:silke@silkeburkhardt.at" className="text-bark hover:text-sage transition-colors duration-[180ms] text-base font-normal">
+                    silke@silkeburkhardt.at
+                  </a>
                 </div>
               </div>
 
+              {/* Standort */}
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-terra/15 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg className="w-5 h-5 text-terra" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div className="w-10 h-10 rounded-full bg-sage/12 flex items-center justify-center shrink-0 text-sage">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7z" />
+                    <circle cx="12" cy="9" r="2.5" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-white/40 text-sm mb-0.5">Erstgespräch</p>
-                  <p className="text-white text-lg">Kostenlos & unverbindlich</p>
+                  <p className="text-[11px] font-medium tracking-wide text-bark-light/60 uppercase mb-0.5">Standort</p>
+                  <p className="text-bark text-base font-normal">Kärnten, Österreich</p>
+                </div>
+              </div>
+
+              {/* Erstgespräch */}
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-sage/12 flex items-center justify-center shrink-0 text-sage">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 6v6l4 2" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[11px] font-medium tracking-wide text-bark-light/60 uppercase mb-0.5">Erstgespräch</p>
+                  <p className="text-bark text-base font-normal">Kostenlos & unverbindlich</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Side - Form */}
+          {/* Formular */}
           <div>
             {submitted ? (
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-10 text-center">
-                <div className="w-14 h-14 rounded-full bg-sage/20 flex items-center justify-center mx-auto mb-5">
-                  <svg className="w-7 h-7 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              <div className="bg-cream border border-sand-dark/60 rounded-2xl p-10 text-center">
+                <div className="w-14 h-14 rounded-full bg-sage/15 flex items-center justify-center mx-auto mb-6">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-sage" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <h3 className="font-serif text-2xl text-white mb-2">Vielen Dank!</h3>
-                <p className="text-white/60">
+                <h3 className="font-serif text-2xl font-normal text-bark mb-2">Vielen Dank.</h3>
+                <p className="text-bark-light text-sm leading-relaxed">
                   Ihre Nachricht ist angekommen. Ich melde mich in Kürze bei Ihnen.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm text-white/50 mb-1.5">
+                    <label htmlFor="name" className="block text-[11px] font-medium tracking-wide text-bark-light/70 uppercase mb-2">
                       Name
                     </label>
                     <input
@@ -122,12 +156,12 @@ export default function Contact() {
                       value={formState.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/25 focus:outline-none focus:border-terra/50 focus:ring-1 focus:ring-terra/30 transition-all"
                       placeholder="Ihr Name"
+                      className="w-full px-4 py-3 bg-cream border border-sand-dark rounded-xl text-bark placeholder:text-bark-light/35 focus:outline-none focus:border-sage transition-colors duration-[180ms] text-sm"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm text-white/50 mb-1.5">
+                    <label htmlFor="email" className="block text-[11px] font-medium tracking-wide text-bark-light/70 uppercase mb-2">
                       E-Mail
                     </label>
                     <input
@@ -137,13 +171,14 @@ export default function Contact() {
                       value={formState.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/25 focus:outline-none focus:border-terra/50 focus:ring-1 focus:ring-terra/30 transition-all"
                       placeholder="ihre@email.at"
+                      className="w-full px-4 py-3 bg-cream border border-sand-dark rounded-xl text-bark placeholder:text-bark-light/35 focus:outline-none focus:border-sage transition-colors duration-[180ms] text-sm"
                     />
                   </div>
                 </div>
+
                 <div>
-                  <label htmlFor="thema" className="block text-sm text-white/50 mb-1.5">
+                  <label htmlFor="thema" className="block text-[11px] font-medium tracking-wide text-bark-light/70 uppercase mb-2">
                     Thema
                   </label>
                   <select
@@ -151,20 +186,20 @@ export default function Contact() {
                     name="thema"
                     value={formState.thema}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-terra/50 focus:ring-1 focus:ring-terra/30 transition-all appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 bg-cream border border-sand-dark rounded-xl text-bark focus:outline-none focus:border-sage transition-colors duration-[180ms] text-sm appearance-none cursor-pointer"
                   >
-                    <option value="" className="bg-bark">Bitte wählen...</option>
-                    <option value="Supervision" className="bg-bark">Supervision</option>
-                    <option value="Coaching" className="bg-bark">Coaching</option>
-                    <option value="Fallberatung" className="bg-bark">Fallberatung</option>
-                    <option value="Workshop" className="bg-bark">Workshop</option>
-                    <option value="Lebens- & Sozialberatung" className="bg-bark">Lebens- & Sozialberatung</option>
-                    <option value="Mitarbeiterentwicklung" className="bg-bark">Mitarbeiterentwicklung</option>
-                    <option value="Sonstiges" className="bg-bark">Sonstiges</option>
+                    <option value="">Bitte wählen ...</option>
+                    <option value="Lebensberatung">Lebensberatung</option>
+                    <option value="Sozialberatung">Sozialberatung</option>
+                    <option value="Teambuilding">Teambuilding</option>
+                    <option value="Organisationsentwicklung">Organisationsentwicklung</option>
+                    <option value="Supervision">Supervision</option>
+                    <option value="Sonstiges">Sonstiges</option>
                   </select>
                 </div>
+
                 <div>
-                  <label htmlFor="nachricht" className="block text-sm text-white/50 mb-1.5">
+                  <label htmlFor="nachricht" className="block text-[11px] font-medium tracking-wide text-bark-light/70 uppercase mb-2">
                     Nachricht
                   </label>
                   <textarea
@@ -172,21 +207,24 @@ export default function Contact() {
                     name="nachricht"
                     value={formState.nachricht}
                     onChange={handleChange}
-                    rows={4}
+                    rows={5}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/25 focus:outline-none focus:border-terra/50 focus:ring-1 focus:ring-terra/30 transition-all resize-none"
-                    placeholder="Erzählen Sie mir kurz von Ihrem Anliegen..."
+                    placeholder="Erzählen Sie mir kurz von Ihrem Anliegen ..."
+                    className="w-full px-4 py-3 bg-cream border border-sand-dark rounded-xl text-bark placeholder:text-bark-light/35 focus:outline-none focus:border-sage transition-colors duration-[180ms] text-sm resize-none leading-relaxed"
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto px-8 py-3.5 bg-terra text-white text-sm font-medium rounded-full hover:bg-terra-dark transition-all duration-300 hover:shadow-lg hover:shadow-terra/20"
-                >
-                  Nachricht senden
-                </button>
-                <p className="text-white/30 text-xs">
-                  Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
-                </p>
+
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                  <button
+                    type="submit"
+                    className="sm:w-auto px-8 py-3.5 bg-sage text-white text-sm font-medium rounded-full hover:bg-sage-dark transition-colors duration-[180ms]"
+                  >
+                    Nachricht senden
+                  </button>
+                  <p className="text-[11px] text-bark-light/45 leading-relaxed">
+                    Ihre Daten werden vertraulich behandelt.
+                  </p>
+                </div>
               </form>
             )}
           </div>

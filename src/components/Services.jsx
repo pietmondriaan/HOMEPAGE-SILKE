@@ -2,73 +2,55 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const services = [
   {
-    title: 'Supervision',
+    eyebrow: 'Für Privatpersonen',
+    title: 'Lebensberatung',
     description:
-      'Reflexion und Begleitung für Einzelpersonen und Teams in herausfordernden beruflichen Kontexten. Für mehr Klarheit im professionellen Handeln.',
+      'Begleitung in persönlichen Lebensfragen, Umbruchphasen und Krisensituationen. Empathisch, lösungsorientiert und auf Augenhöhe.',
     icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-9 h-9">
-        <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="24" cy="24" r="8" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M24 4v8M24 36v8M4 24h8M36 24h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M12 21s-8-4.35-8-10.5a5.5 5.5 0 0 1 8-4.9A5.5 5.5 0 0 1 20 10.5c0 6.15-8 10.5-8 10.5z" />
       </svg>
     ),
   },
   {
-    title: 'Coaching',
+    eyebrow: 'Für Fachkräfte',
+    title: 'Sozialberatung',
     description:
-      'Individuelle Begleitung für Führungskräfte und Fachkräfte bei persönlichen und beruflichen Entwicklungsthemen.',
+      'Supervision, Fallberatung und fachliche Begleitung für sozialpädagogische Fachkräfte und Einrichtungen. Reflexion, die trägt.',
     icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-9 h-9">
-        <path d="M8 40l8-12 8 6 8-18 8 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="38" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <circle cx="8" cy="8" r="3" />
+        <circle cx="16" cy="8" r="3" />
+        <path d="M2 20c0-4 2.7-6 6-6M16 14c3.3 0 6 2 6 6" />
+        <path d="M9 20c0-3 1.3-5 3-5s3 2 3 5" />
       </svg>
     ),
   },
   {
-    title: 'Fallberatung',
+    eyebrow: 'Für Teams',
+    title: 'Teambuilding',
     description:
-      'Fachliche Analyse und systemische Bearbeitung komplexer Fallsituationen in der Sozialpädagogik und angrenzenden Feldern.',
+      'Workshops und Prozessbegleitung für Teams in Veränderungs- und Entwicklungsphasen. Interaktiv, praxisnah und nachhaltig wirksam.',
     icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-9 h-9">
-        <rect x="6" y="10" width="36" height="28" rx="3" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M6 18h36M14 10V6M34 10V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M18 26h12M18 32h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <rect x="3" y="3" width="8" height="8" rx="1.5" />
+        <rect x="13" y="3" width="8" height="8" rx="1.5" />
+        <rect x="3" y="13" width="8" height="8" rx="1.5" />
+        <rect x="13" y="13" width="8" height="8" rx="1.5" />
       </svg>
     ),
   },
   {
-    title: 'Workshops',
+    eyebrow: 'Für Unternehmen & NGOs',
+    title: 'Organisations­entwicklung',
     description:
-      'Praxisnahe Workshops zu pädagogischen Themen, Teamentwicklung und professioneller Haltung — interaktiv und nachhaltig.',
+      'Strategische Beratung und Begleitung von Organisationen. Konzeptentwicklung, Personalentwicklung, strukturelle Neuausrichtung.',
     icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-9 h-9">
-        <path d="M12 36c0-8 6-12 12-12s12 4 12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="24" cy="16" r="8" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="38" cy="20" r="5" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="10" cy="20" r="5" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Lebens- & Sozialberatung',
-    description:
-      'Begleitung in persönlichen Lebensfragen und Krisensituationen — empathisch, lösungsorientiert und auf Augenhöhe.',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-9 h-9">
-        <path d="M24 42s-16-8.4-16-20a10 10 0 0 1 16-8 10 10 0 0 1 16 8c0 11.6-16 20-16 20z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Mitarbeiter\u00ADentwicklung',
-    description:
-      'Strategische Personalentwicklung und Begleitung von Führungskräften bei der Gestaltung lernender Organisationen.',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-9 h-9">
-        <path d="M14 38V28M24 38V20M34 38V12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="14" cy="24" r="3" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="24" cy="16" r="3" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="34" cy="8" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <circle cx="12" cy="5" r="2" />
+        <circle cx="5" cy="19" r="2" />
+        <circle cx="19" cy="19" r="2" />
+        <path d="M12 7v4M12 11l-5.3 6.5M12 11l5.3 6.5" />
       </svg>
     ),
   },
@@ -80,24 +62,31 @@ function ServiceCard({ service, index }) {
   return (
     <div
       ref={ref}
-      className={`animate-on-scroll group relative p-6 lg:p-7 rounded-2xl bg-white/70 border border-sand/80 hover:border-terra/30 hover:bg-white transition-all duration-500 hover:shadow-xl hover:shadow-terra/8 hover:-translate-y-1 ${
+      className={`animate-on-scroll group flex flex-col p-7 lg:p-8 rounded-2xl bg-cream border border-sand-dark/50 hover:border-sage/40 hover:shadow-[0_8px_24px_rgba(60,55,40,0.07)] transition-all duration-[280ms] ${
         isVisible ? 'is-visible' : ''
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="w-12 h-12 rounded-xl bg-terra/8 flex items-center justify-center text-terra/80 group-hover:text-terra group-hover:bg-terra/12 transition-all duration-300 mb-4">
+      <div className="w-11 h-11 rounded-xl bg-sage/10 flex items-center justify-center text-sage group-hover:bg-sage group-hover:text-white transition-all duration-[280ms] mb-5">
         {service.icon}
       </div>
-      <h3 className="font-serif text-lg font-medium text-bark mb-2">
+
+      <p className="font-sans text-[10px] font-medium tracking-[0.16em] text-sage/70 uppercase mb-2">
+        {service.eyebrow}
+      </p>
+
+      <h3 className="font-serif text-xl font-normal text-bark mb-3 leading-snug">
         {service.title}
       </h3>
-      <p className="text-bark-light text-sm leading-relaxed">
+
+      <p className="text-[14px] leading-[1.75] text-bark-light flex-1">
         {service.description}
       </p>
-      <div className="mt-5 flex items-center gap-2 text-terra text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
+      <div className="mt-6 flex items-center gap-1.5 text-sage text-[13px] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-[280ms]">
         <span>Mehr erfahren</span>
-        <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="translate-x-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">
+          <path d="M2 7h10M8 3l4 4-4 4" />
         </svg>
       </div>
     </div>
@@ -108,28 +97,34 @@ export default function Services() {
   const [headerRef, headerVisible] = useScrollAnimation()
 
   return (
-    <section id="leistungen" className="py-16 lg:py-24 bg-sand/25 relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sand-dark/50 to-transparent" />
+    <section id="leistungen" className="py-24 lg:py-36 bg-cream relative">
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
+
+        {/* Header */}
         <div
           ref={headerRef}
-          className={`max-w-2xl mb-12 lg:mb-16 animate-on-scroll ${headerVisible ? 'is-visible' : ''}`}
+          className={`max-w-xl mb-14 lg:mb-20 animate-on-scroll ${headerVisible ? 'is-visible' : ''}`}
         >
-          <p className="text-terra font-semibold text-sm tracking-widest uppercase mb-3">
-            Leistungen
+          <p className="font-sans text-[10px] font-medium tracking-[0.2em] text-sage uppercase mb-5">
+            Angebote
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.5rem] font-medium text-bark leading-snug mb-4">
-            Begleitung, die{' '}
-            <em className="text-terra not-italic">wirkt</em>
+          <h2
+            className="font-serif font-normal text-bark leading-[1.12] mb-5"
+            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', textWrap: 'balance' }}
+          >
+            Vier ineinandergreifende
+            <br />
+            <em>Leistungsbereiche.</em>
           </h2>
-          <p className="text-bark-light text-lg leading-relaxed">
-            Ob Einzelsupervision, Teambegleitung oder strategische Beratung —
-            mein Angebot orientiert sich an Ihren individuellen Bedürfnissen und Zielen.
+          <p className="text-base leading-[1.75] text-bark-light">
+            Ob persönliche Lebenskrise, Teamkonflikte oder strukturelle Fragen —
+            mein Angebot orientiert sich an Ihren Bedürfnissen und Zielen.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+        {/* Cards — 2×2 Grid */}
+        <div className="grid sm:grid-cols-2 gap-4 lg:gap-5">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

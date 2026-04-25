@@ -1,20 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #FAF7F2;
-  --color-sand: #E8DFD3;
-  --color-sand-dark: #D4C5B3;
-  --color-terra: #C4704B;
-  --color-terra-dark: #A85D3B;
-  --color-sage: #8B9E7C;
-  --color-sage-light: #A8B89C;
-  --color-bark: #2D2926;
-  --color-bark-light: #4A4543;
-  --color-gold: #B8975A;
-  --color-gold-light: #D4B87A;
+  /* Bone/Off-White — Haupthintergrund */
+  --color-cream: #F0EDE6;
+  --color-paper: #F5F2EC;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  /* Stone — Neutrale Grautöne */
+  --color-sand: #E8E5DE;
+  --color-sand-dark: #D2CEC4;
+
+  /* Salbeigrün — Primärfarbe */
+  --color-sage: #6E9774;
+  --color-sage-light: #9CB89E;
+  --color-sage-dark: #5C8062;
+  --color-sage-deeper: #4B6850;
+  --color-sage-pale: #F1F5F1;
+  --color-sage-bg: #DCE6DC;
+
+  /* Terrakotta — Warmer Akzent, sehr sparsam */
+  --color-terra: #B8835C;
+  --color-terra-dark: #8A5A3A;
+
+  /* Text */
+  --color-bark: #1F1D19;
+  --color-bark-light: #6B6659;
+
+  /* Sand-Töne */
+  --color-gold: #B89F7A;
+  --color-gold-light: #D8C5A6;
+
+  /* Schriften */
+  --font-sans: 'Inter Tight', 'Helvetica Neue', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
 }
 
 html {
@@ -31,14 +48,14 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-terra);
+  background-color: var(--color-sage);
   color: white;
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -48,63 +65,31 @@ body {
 
 @keyframes fade-in {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(2deg); }
-}
-
-@keyframes blob {
-  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
-  75% { border-radius: 60% 40% 60% 30% / 60% 40% 30% 60%; }
-}
-
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes blob-morph {
+  0%, 100% { border-radius: 62% 38% 48% 52% / 55% 45% 55% 45%; }
+  33%       { border-radius: 45% 55% 60% 40% / 60% 40% 50% 50%; }
+  66%       { border-radius: 55% 45% 40% 60% / 40% 60% 55% 45%; }
 }
 
 .animate-fade-up {
-  animation: fade-up 0.8s ease-out forwards;
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
+  animation: fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.animate-float {
-  animation: float 8s ease-in-out infinite;
-}
-
-.animate-blob {
-  animation: blob 12s ease-in-out infinite;
+.animate-blob-morph {
+  animation: blob-morph 14s ease-in-out infinite;
 }
 
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(12px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-on-scroll.is-visible {
@@ -117,3 +102,7 @@ body {
 .delay-300 { transition-delay: 0.3s; }
 .delay-400 { transition-delay: 0.4s; }
 .delay-500 { transition-delay: 0.5s; }
+
+.blob-mask {
+  border-radius: 62% 38% 48% 52% / 55% 45% 55% 45%;
+}

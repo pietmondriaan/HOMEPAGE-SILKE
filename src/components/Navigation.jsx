@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 const navItems = [
   { label: 'Über mich', href: '#ueber-mich' },
-  { label: 'Leistungen', href: '#leistungen' },
+  { label: 'Angebote', href: '#leistungen' },
   { label: 'Arbeitsweise', href: '#arbeitsweise' },
   { label: 'Kontakt', href: '#kontakt' },
 ]
@@ -18,84 +18,83 @@ export default function Navigation() {
   }, [])
 
   useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
+    document.body.style.overflow = isMobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [isMobileOpen])
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[280ms] ${
         isScrolled
-          ? 'bg-cream/90 backdrop-blur-md shadow-[0_1px_3px_rgba(45,41,38,0.08)]'
+          ? 'bg-cream/92 backdrop-blur-sm shadow-[0_1px_2px_rgba(31,29,25,0.06)]'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a
-            href="#"
-            className="font-serif text-xl lg:text-2xl font-medium text-bark tracking-tight hover:text-terra transition-colors"
-          >
-            Silke Burkhardt
+
+          {/* Wortmarke */}
+          <a href="#" className="flex flex-col leading-none group">
+            <span className="font-sans text-[10px] font-medium tracking-[0.2em] text-bark group-hover:text-sage transition-colors duration-[180ms]">
+              ÜBERBLICK.
+            </span>
+            <span className="font-serif text-[15px] font-normal text-bark-light group-hover:text-bark transition-colors duration-[180ms]">
+              Silke Burkhardt
+            </span>
           </a>
 
-          {/* Desktop Nav */}
+          {/* Desktop-Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-bark-light hover:text-terra transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-terra after:transition-all after:duration-300 hover:after:w-full"
+                className="text-[13px] font-normal text-bark-light hover:text-sage transition-colors duration-[180ms] relative after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-sage after:transition-all after:duration-[280ms] hover:after:w-full"
               >
                 {item.label}
               </a>
             ))}
             <a
               href="#kontakt"
-              className="text-sm font-medium px-5 py-2.5 bg-terra text-white rounded-full hover:bg-terra-dark transition-colors"
+              className="text-[13px] font-medium px-5 py-2.5 bg-sage text-white rounded-full hover:bg-sage-dark transition-colors duration-[180ms]"
             >
-              Gespräch buchen
+              Erstgespräch
             </a>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile-Toggle */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
+            className="md:hidden w-8 h-8 flex flex-col items-center justify-center gap-[5px]"
             aria-label="Menü öffnen"
           >
             <span
-              className={`block w-6 h-[1.5px] bg-bark transition-all duration-300 ${
-                isMobileOpen ? 'rotate-45 translate-y-[4.5px]' : ''
+              className={`block w-5 h-px bg-bark transition-all duration-[280ms] ${
+                isMobileOpen ? 'rotate-45 translate-y-[3px]' : ''
               }`}
             />
             <span
-              className={`block w-6 h-[1.5px] bg-bark transition-all duration-300 ${
-                isMobileOpen ? '-rotate-45 -translate-y-[4.5px]' : ''
+              className={`block w-5 h-px bg-bark transition-all duration-[280ms] ${
+                isMobileOpen ? '-rotate-45 -translate-y-[3px]' : ''
               }`}
             />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile-Menü */}
       <div
-        className={`md:hidden fixed inset-0 top-16 bg-cream/98 backdrop-blur-lg transition-all duration-400 ${
+        className={`md:hidden fixed inset-0 top-16 bg-cream transition-all duration-[280ms] ${
           isMobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8 -mt-16">
-          {navItems.map((item, i) => (
+        <div className="flex flex-col items-center justify-center h-full gap-9">
+          {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setIsMobileOpen(false)}
-              className="text-2xl font-serif text-bark hover:text-terra transition-colors"
-              style={{ animationDelay: `${i * 80}ms` }}
+              className="font-serif text-2xl text-bark hover:text-sage transition-colors duration-[180ms]"
             >
               {item.label}
             </a>
@@ -103,9 +102,9 @@ export default function Navigation() {
           <a
             href="#kontakt"
             onClick={() => setIsMobileOpen(false)}
-            className="mt-4 text-lg font-medium px-8 py-3 bg-terra text-white rounded-full hover:bg-terra-dark transition-colors"
+            className="mt-2 text-sm font-medium px-8 py-3 bg-sage text-white rounded-full hover:bg-sage-dark transition-colors duration-[180ms]"
           >
-            Gespräch buchen
+            Erstgespräch vereinbaren
           </a>
         </div>
       </div>

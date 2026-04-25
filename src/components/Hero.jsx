@@ -1,98 +1,98 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-cream">
-      {/* Organic Background Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute -top-20 -right-32 w-[500px] h-[500px] bg-terra/[0.08] animate-blob"
-          style={{ animationDelay: '0s' }}
-        />
-        <div
-          className="absolute top-1/3 -left-40 w-[400px] h-[400px] bg-sage/[0.12] animate-blob"
-          style={{ animationDelay: '-4s' }}
-        />
-        <div
-          className="absolute -bottom-20 right-1/4 w-[350px] h-[350px] bg-gold/[0.08] animate-blob"
-          style={{ animationDelay: '-8s' }}
-        />
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-cream">
 
-      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 w-full pt-24 pb-12 lg:pt-28 lg:pb-16">
-        <div className="grid lg:grid-cols-[1.2fr,0.8fr] gap-10 lg:gap-16 items-center">
-          {/* Text Content */}
-          <div className="animate-fade-up">
-            <p className="text-terra font-semibold text-sm tracking-widest uppercase mb-5">
-              Systemische Beraterin · Supervisorin · Pädagogin
-            </p>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl leading-[1.08] font-medium text-bark mb-6 tracking-tight">
-              Klarheit schaffen.{' '}
-              <span className="text-terra">Entwicklung</span>{' '}
-              begleiten.
-            </h1>
-            <p className="text-bark-light text-lg lg:text-xl leading-relaxed max-w-xl mb-8">
-              Ich unterstütze Fachkräfte und Teams durch Veränderungsprozesse,
-              Konfliktfelder und Wachstumsphasen — mit systemischer Perspektive,
-              fundierter Praxiserfahrung und echter Begeisterung für Entwicklung.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#kontakt"
-                className="inline-flex items-center px-7 py-3.5 bg-terra text-white text-sm font-medium rounded-full hover:bg-terra-dark transition-all duration-300 hover:shadow-lg hover:shadow-terra/20 hover:-translate-y-0.5"
-              >
-                Erstgespräch vereinbaren
-                <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-              <a
-                href="#leistungen"
-                className="inline-flex items-center px-7 py-3.5 text-bark text-sm font-medium rounded-full border border-bark/20 hover:border-terra hover:text-terra transition-all duration-300"
-              >
-                Leistungen entdecken
-              </a>
-            </div>
+      {/* Blob-Dekorationen */}
+      <div
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-[580px] h-[540px] bg-sage/[0.13] animate-blob-morph pointer-events-none"
+        style={{ borderRadius: '62% 38% 48% 52% / 55% 45% 55% 45%' }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -bottom-20 -left-32 w-[320px] h-[300px] bg-sage/[0.08] animate-blob-morph pointer-events-none"
+        style={{ borderRadius: '38% 62% 52% 48% / 45% 55% 45% 55%', animationDelay: '-5s' }}
+        aria-hidden="true"
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 w-full pt-32 pb-20 lg:pt-44 lg:pb-32">
+        <div className="max-w-[760px]">
+
+          {/* Eyebrow */}
+          <p
+            className="animate-fade-up font-sans text-[10px] font-medium tracking-[0.2em] text-sage uppercase mb-10"
+            style={{ animationDelay: '0ms' }}
+          >
+            Lebens- & Sozialberatung · Teambuilding · Organisationsentwicklung
+          </p>
+
+          {/* Display-Headline */}
+          <h1
+            className="animate-fade-up font-serif font-normal leading-[1.06] tracking-[-0.02em] text-bark mb-8"
+            style={{
+              fontSize: 'clamp(2.8rem, 6vw, 5.5rem)',
+              animationDelay: '80ms',
+              textWrap: 'balance',
+            }}
+          >
+            Es gibt Momente,
+            <br />
+            <em>in denen wir den</em>
+            <br />
+            Überblick verlieren.
+          </h1>
+
+          {/* Subtext */}
+          <p
+            className="animate-fade-up text-lg lg:text-xl font-light leading-[1.7] text-bark-light max-w-xl mb-11"
+            style={{ animationDelay: '160ms' }}
+          >
+            Genau dort beginnt meine Arbeit. Als Beraterin und Supervisorin
+            begleite ich Menschen, Teams und Organisationen durch Veränderung —
+            mit Klarheit, Empathie und systemischer Perspektive.
+          </p>
+
+          {/* Call-to-Action */}
+          <div
+            className="animate-fade-up flex flex-wrap gap-4"
+            style={{ animationDelay: '240ms' }}
+          >
+            <a
+              href="#kontakt"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-sage text-white text-sm font-medium rounded-full hover:bg-sage-dark transition-colors duration-[180ms]"
+            >
+              Erstgespräch vereinbaren
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M2 7.5h11M9 3l4 4.5-4 4.5" />
+              </svg>
+            </a>
+            <a
+              href="#leistungen"
+              className="inline-flex items-center px-7 py-3.5 text-bark text-sm font-medium rounded-full border border-sand-dark hover:border-sage hover:text-sage transition-colors duration-[180ms]"
+            >
+              Meine Angebote
+            </a>
           </div>
 
-          {/* Visual Element — Portrait */}
-          <div className="flex justify-center order-first lg:order-last animate-fade-in mb-6 lg:mb-0" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-            <div className="relative">
-              <div className="w-64 h-72 sm:w-72 sm:h-80 lg:w-80 lg:h-96 overflow-hidden animate-blob shadow-2xl shadow-terra/20 ring-1 ring-sand-dark/20">
-                <img
-                  src="/silke-portrait.jpg"
-                  alt="Silke Burkhardt — Systemische Beraterin, Supervisorin, Pädagogin"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-              </div>
-              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-sage/25 rounded-full animate-float" />
-              <div className="absolute -top-3 -right-3 w-14 h-14 bg-gold/20 rounded-full animate-float" style={{ animationDelay: '-3s' }} />
-            </div>
+          {/* Credentials */}
+          <div
+            className="animate-fade-in mt-16 pt-7 border-t border-sand-dark/50 flex flex-wrap gap-6"
+            style={{ animationDelay: '420ms' }}
+          >
+            {[
+              'Mag. Silke Burkhardt',
+              'Diplomierte Supervisorin (ÖVS)',
+              'Kärnten, Österreich',
+            ].map((item) => (
+              <span
+                key={item}
+                className="text-xs text-bark-light/55 tracking-wide flex items-center gap-2"
+              >
+                <span className="w-1 h-1 rounded-full bg-sage/50 shrink-0" />
+                {item}
+              </span>
+            ))}
           </div>
         </div>
-
-        {/* Trust Indicators */}
-        <div className="mt-14 pt-8 border-t border-sand-dark/30">
-          <div className="flex flex-wrap justify-center lg:justify-start gap-x-10 gap-y-3 text-sm text-bark-light/70">
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-sage" />
-              Diplomierte Supervisorin (ÖVS)
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-sage" />
-              Systemische Beraterin
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-sage" />
-              10+ Jahre Leitungserfahrung
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 animate-fade-in" style={{ animationDelay: '1s', animationFillMode: 'both' }}>
-        <span className="text-xs text-bark-light/50 tracking-widest uppercase">Scroll</span>
-        <div className="w-[1px] h-8 bg-gradient-to-b from-bark-light/30 to-transparent" />
       </div>
     </section>
   )
