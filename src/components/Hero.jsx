@@ -19,12 +19,12 @@ export default function Hero() {
 
           {/* Textspalte */}
           <div>
-            <p
-              className="animate-fade-up font-sans text-[10px] font-semibold tracking-[0.2em] text-petrol uppercase mb-7"
+            <img
+              src="/logo-silke.png"
+              alt="Silke Burkhardt — Supervision, Coaching & Teamentwicklung"
+              className="animate-fade-up h-28 lg:h-32 w-auto mb-8"
               style={{ animationDelay: '0ms' }}
-            >
-              Supervision · Coaching · Teamentwicklung
-            </p>
+            />
 
             <h1
               className="animate-fade-up font-serif font-normal leading-[1.1] tracking-[-0.02em] text-azure mb-6"
