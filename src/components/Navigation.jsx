@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 
 const navItems = [
+  { label: 'Angebot', href: '#angebot' },
   { label: 'Über mich', href: '#ueber-mich' },
-  { label: 'Angebote', href: '#leistungen' },
   { label: 'Arbeitsweise', href: '#arbeitsweise' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Kontakt', href: '#kontakt' },
 ]
 
@@ -26,7 +27,7 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[280ms] ${
         isScrolled
-          ? 'bg-cream/92 backdrop-blur-sm shadow-[0_1px_2px_rgba(31,29,25,0.06)]'
+          ? 'bg-canvas/92 backdrop-blur-sm shadow-[0_1px_2px_rgba(31,29,25,0.06)]'
           : 'bg-transparent'
       }`}
     >
@@ -34,11 +35,8 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
 
           {/* Wortmarke */}
-          <a href="#" className="flex flex-col leading-none group">
-            <span className="font-sans text-[10px] font-medium tracking-[0.2em] text-bark group-hover:text-sage transition-colors duration-[180ms]">
-              ÜBERBLICK.
-            </span>
-            <span className="font-serif text-[15px] font-normal text-bark-light group-hover:text-bark transition-colors duration-[180ms]">
+          <a href="#" className="leading-none group">
+            <span className="font-serif text-[17px] font-normal text-azure group-hover:text-petrol transition-colors duration-[180ms]">
               Silke Burkhardt
             </span>
           </a>
@@ -49,14 +47,14 @@ export default function Navigation() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-[13px] font-normal text-bark-light hover:text-sage transition-colors duration-[180ms] relative after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-sage after:transition-all after:duration-[280ms] hover:after:w-full"
+                className="font-sans text-[13px] font-normal text-ink-soft hover:text-petrol transition-colors duration-[180ms] relative after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-petrol after:transition-all after:duration-[280ms] hover:after:w-full"
               >
                 {item.label}
               </a>
             ))}
             <a
               href="#kontakt"
-              className="text-[13px] font-medium px-5 py-2.5 bg-sage text-white rounded-full hover:bg-sage-dark transition-colors duration-[180ms]"
+              className="font-sans text-[13px] font-medium px-5 py-2.5 bg-petrol text-white rounded-full hover:bg-petrol-dark transition-colors duration-[180ms]"
             >
               Erstgespräch
             </a>
@@ -69,12 +67,12 @@ export default function Navigation() {
             aria-label="Menü öffnen"
           >
             <span
-              className={`block w-5 h-px bg-bark transition-all duration-[280ms] ${
+              className={`block w-5 h-px bg-ink transition-all duration-[280ms] ${
                 isMobileOpen ? 'rotate-45 translate-y-[3px]' : ''
               }`}
             />
             <span
-              className={`block w-5 h-px bg-bark transition-all duration-[280ms] ${
+              className={`block w-5 h-px bg-ink transition-all duration-[280ms] ${
                 isMobileOpen ? '-rotate-45 -translate-y-[3px]' : ''
               }`}
             />
@@ -84,7 +82,7 @@ export default function Navigation() {
 
       {/* Mobile-Menü */}
       <div
-        className={`md:hidden fixed inset-0 top-16 bg-cream transition-all duration-[280ms] ${
+        className={`md:hidden fixed inset-0 top-16 bg-canvas transition-all duration-[280ms] ${
           isMobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
@@ -94,7 +92,7 @@ export default function Navigation() {
               key={item.href}
               href={item.href}
               onClick={() => setIsMobileOpen(false)}
-              className="font-serif text-2xl text-bark hover:text-sage transition-colors duration-[180ms]"
+              className="font-sans text-2xl text-ink hover:text-petrol transition-colors duration-[180ms]"
             >
               {item.label}
             </a>
@@ -102,7 +100,7 @@ export default function Navigation() {
           <a
             href="#kontakt"
             onClick={() => setIsMobileOpen(false)}
-            className="mt-2 text-sm font-medium px-8 py-3 bg-sage text-white rounded-full hover:bg-sage-dark transition-colors duration-[180ms]"
+            className="mt-2 font-sans text-sm font-medium px-8 py-3 bg-petrol text-white rounded-full hover:bg-petrol-dark transition-colors duration-[180ms]"
           >
             Erstgespräch vereinbaren
           </a>
