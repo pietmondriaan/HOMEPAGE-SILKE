@@ -88,24 +88,24 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Portrait */}
+          {/* Portrait — freigestellt vor Petrol-Blob */}
           <div
-            className="animate-fade-up"
+            className="animate-fade-up flex justify-center lg:justify-end"
             style={{ animationDelay: '320ms' }}
           >
-            <div className="relative w-[78%] max-w-sm mx-auto lg:w-full lg:max-w-none">
+            <div className="relative w-[260px] sm:w-[300px] lg:w-[350px]">
               <div
-                className="w-full aspect-[4/5] bg-petrol-pale overflow-hidden animate-blob-morph"
+                className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[120%] aspect-square bg-petrol animate-blob-morph"
                 style={{ borderRadius: '62% 38% 48% 52% / 55% 45% 55% 45%' }}
-              >
-                <img
-                  src="/silke-portrait.jpg"
-                  alt="Mag. Silke Burkhardt"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-5 -left-5 w-16 h-16 rounded-full bg-petrol/15" aria-hidden="true" />
-              <div className="absolute -top-3 -right-2 w-9 h-9 rounded-full bg-petrol/25" aria-hidden="true" />
+                aria-hidden="true"
+              />
+              <div className="absolute bottom-3 -left-4 w-14 h-14 rounded-full bg-petrol/20" aria-hidden="true" />
+              <div className="absolute top-8 -right-3 w-8 h-8 rounded-full bg-petrol/30" aria-hidden="true" />
+              <img
+                src="/silke-hero.png"
+                alt="Mag. Silke Burkhardt — Supervisorin, Coach und Teamentwicklerin"
+                className="relative z-10 w-full h-auto drop-shadow-[0_20px_34px_rgba(28,70,84,0.20)]"
+              />
             </div>
           </div>
 
