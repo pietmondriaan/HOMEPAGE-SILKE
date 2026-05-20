@@ -1,15 +1,15 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-cream">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-canvas">
 
       {/* Blob-Dekorationen */}
       <div
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-[580px] h-[540px] bg-sage/[0.13] animate-blob-morph pointer-events-none"
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-[580px] h-[540px] bg-petrol/[0.13] animate-blob-morph pointer-events-none"
         style={{ borderRadius: '62% 38% 48% 52% / 55% 45% 55% 45%' }}
         aria-hidden="true"
       />
       <div
-        className="absolute -bottom-20 -left-32 w-[320px] h-[300px] bg-sage/[0.08] animate-blob-morph pointer-events-none"
+        className="absolute -bottom-20 -left-32 w-[320px] h-[300px] bg-petrol/[0.08] animate-blob-morph pointer-events-none"
         style={{ borderRadius: '38% 62% 52% 48% / 45% 55% 45% 55%', animationDelay: '-5s' }}
         aria-hidden="true"
       />
@@ -19,36 +19,30 @@ export default function Hero() {
 
           {/* Eyebrow */}
           <p
-            className="animate-fade-up font-sans text-[10px] font-medium tracking-[0.2em] text-sage uppercase mb-10"
+            className="animate-fade-up font-sans text-[10px] font-medium tracking-[0.2em] text-petrol uppercase mb-10"
             style={{ animationDelay: '0ms' }}
           >
-            Lebens- & Sozialberatung · Teambuilding · Organisationsentwicklung
+            Supervision · Coaching · Teamentwicklung
           </p>
 
           {/* Display-Headline */}
           <h1
-            className="animate-fade-up font-serif font-normal leading-[1.06] tracking-[-0.02em] text-bark mb-8"
+            className="animate-fade-up font-serif font-normal leading-[1.06] tracking-[-0.02em] text-azure mb-8"
             style={{
               fontSize: 'clamp(2.8rem, 6vw, 5.5rem)',
               animationDelay: '80ms',
               textWrap: 'balance',
             }}
           >
-            Es gibt Momente,
-            <br />
-            <em>in denen wir den</em>
-            <br />
-            Überblick verlieren.
+            Orientierung und Handlungssicherheit — für Teams und Leitungen in der sozialen Arbeit.
           </h1>
 
           {/* Subtext */}
           <p
-            className="animate-fade-up text-lg lg:text-xl font-light leading-[1.7] text-bark-light max-w-xl mb-11"
+            className="animate-fade-up text-lg lg:text-xl font-light leading-[1.7] text-ink-soft max-w-xl mb-11"
             style={{ animationDelay: '160ms' }}
           >
-            Genau dort beginnt meine Arbeit. Als Beraterin und Supervisorin
-            begleite ich Menschen, Teams und Organisationen durch Veränderung —
-            mit Klarheit, Empathie und systemischer Perspektive.
+            Supervision, Coaching und Teamentwicklung für Fach- und Führungskräfte in betreuungsintensiven Arbeitsfeldern. Haltungs- und ressourcenorientiert, getragen von 24 Jahren Praxis- und Leitungserfahrung.
           </p>
 
           {/* Call-to-Action */}
@@ -58,7 +52,7 @@ export default function Hero() {
           >
             <a
               href="#kontakt"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-sage text-white text-sm font-medium rounded-full hover:bg-sage-dark transition-colors duration-[180ms]"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-petrol text-white text-sm font-medium rounded-full hover:bg-petrol-dark transition-colors duration-[180ms]"
             >
               Erstgespräch vereinbaren
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -66,8 +60,8 @@ export default function Hero() {
               </svg>
             </a>
             <a
-              href="#leistungen"
-              className="inline-flex items-center px-7 py-3.5 text-bark text-sm font-medium rounded-full border border-sand-dark hover:border-sage hover:text-sage transition-colors duration-[180ms]"
+              href="#angebot"
+              className="inline-flex items-center px-7 py-3.5 text-ink text-sm font-medium rounded-full border border-line hover:border-petrol hover:text-petrol transition-colors duration-[180ms]"
             >
               Meine Angebote
             </a>
@@ -75,19 +69,20 @@ export default function Hero() {
 
           {/* Credentials */}
           <div
-            className="animate-fade-in mt-16 pt-7 border-t border-sand-dark/50 flex flex-wrap gap-6"
+            className="animate-fade-in mt-16 pt-7 border-t border-line/50 flex flex-wrap gap-6"
             style={{ animationDelay: '420ms' }}
           >
             {[
               'Mag. Silke Burkhardt',
-              'Diplomierte Supervisorin (ÖVS)',
-              'Kärnten, Österreich',
+              'Sozial- und Integrationspädagogin',
+              'Kärnten & Steiermark',
+              'Verfügbar ab Juni 2026',
             ].map((item) => (
               <span
                 key={item}
-                className="text-xs text-bark-light/55 tracking-wide flex items-center gap-2"
+                className="text-xs text-ink-soft/55 tracking-wide flex items-center gap-2"
               >
-                <span className="w-1 h-1 rounded-full bg-sage/50 shrink-0" />
+                <span className="w-1 h-1 rounded-full bg-petrol/50 shrink-0" />
                 {item}
               </span>
             ))}
