@@ -5,19 +5,19 @@ const steps = [
     number: '01',
     title: 'Ankommen & Verstehen',
     description:
-      'Im ersten Schritt höre ich zu. Wir klären das Anliegen, beleuchten den Kontext und entwickeln ein gemeinsames Verständnis der Situation.',
+      'Wir klären das Anliegen, beleuchten den Kontext und entwickeln ein gemeinsames Verständnis der Situation.',
   },
   {
     number: '02',
-    title: 'Perspektiven öffnen',
+    title: 'Ressourcen sichtbar machen',
     description:
-      'Mit systemischen Methoden eröffnen wir neue Blickwinkel. Muster werden sichtbar, Zusammenhänge klarer — ohne vorschnelle Lösungen.',
+      'Mit systemischer Perspektive lenken wir den Blick auf das, was bereits trägt — und auf ungenutzte Handlungsspielräume.',
   },
   {
     number: '03',
-    title: 'Entwicklung gestalten',
+    title: 'Handlungssicherheit gewinnen',
     description:
-      'Gemeinsam erarbeiten wir konkrete, umsetzbare Schritte. Nachhaltige Veränderung entsteht dort, wo Erkenntnis auf Handlung trifft.',
+      'Gemeinsam erarbeiten wir konkrete, umsetzbare Schritte, die im Berufsalltag Orientierung und Sicherheit geben.',
   },
 ]
 
@@ -25,7 +25,7 @@ export default function Approach() {
   const [ref, isVisible] = useScrollAnimation()
 
   return (
-    <section id="arbeitsweise" className="py-24 lg:py-36 bg-sage relative overflow-hidden">
+    <section id="arbeitsweise" className="py-24 lg:py-36 bg-petrol relative overflow-hidden">
 
       {/* Helle Blob-Dekoration */}
       <div
@@ -50,20 +50,17 @@ export default function Approach() {
               className="font-serif font-normal text-white leading-[1.12] mb-6"
               style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', textWrap: 'balance' }}
             >
-              Systemisch denken.
-              <br />
-              <em>Gemeinsam handeln.</em>
+              Haltungs- und ressourcenorientiert.
             </h2>
 
             <p className="text-white/70 text-base leading-[1.75] mb-8">
-              Mein Ansatz verbindet systemische Theorie mit langjähriger Praxiserfahrung.
-              Im Zentrum steht nicht das Problem, sondern die Fähigkeit zur Veränderung.
+              Im Zentrum meiner Arbeit steht nicht das Problem, sondern die Fähigkeit, tragfähige Lösungen zu entwickeln. Fachlichkeit und Persönlichkeit stehen dabei gleichrangig nebeneinander.
             </p>
 
             <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full border border-white/20 bg-white/8">
               <span className="w-1.5 h-1.5 rounded-full bg-white/60 shrink-0" />
               <span className="text-[12px] font-medium text-white/80 tracking-wide">
-                Systemisch · Lösungsorientiert · Praxisnah
+                Haltungsorientiert · Ressourcenorientiert · Praxisnah
               </span>
             </div>
           </div>
