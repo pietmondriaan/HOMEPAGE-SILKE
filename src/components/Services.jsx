@@ -96,12 +96,12 @@ function ServiceCard({ service, index }) {
         {service.description}
       </p>
 
-      <div className="mt-6 flex items-center gap-1.5 text-petrol text-[13px] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-[280ms]">
-        <span>Mehr erfahren</span>
+      <a href="#kontakt" className="mt-6 flex items-center gap-1.5 text-petrol text-[13px] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-[280ms]">
+        <span>Anfragen</span>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="translate-x-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">
           <path d="M2 7h10M8 3l4 4-4 4" />
         </svg>
-      </div>
+      </a>
     </div>
   )
 }
