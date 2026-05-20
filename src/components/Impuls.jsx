@@ -8,7 +8,7 @@ export default function Impuls() {
   if (!SHOW_IMPULS) return null
 
   return (
-    <section id="impuls" className="py-24 lg:py-36 bg-petrol-pale">
+    <section id="impuls" className="py-20 lg:py-28 bg-petrol-pale">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div
           ref={ref}

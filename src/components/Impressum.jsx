@@ -30,10 +30,8 @@ export default function Impressum() {
               Lebens- und Sozialberatung; Unternehmensberatung
             </p>
             <p>
-              <span className="font-medium">GISA-Zahl:</span>{' '}
-              <span className="bg-yellow-100 text-yellow-800 px-1 rounded font-mono">
-                [[ VON SILKE EINZUTRAGEN ]]
-              </span>
+              <span className="font-medium">GISA-Zahlen:</span>{' '}
+              32669015 (Lebens- und Sozialberatung), 32816167 (Unternehmensberatung)
             </p>
             <p>
               <span className="font-medium">Berufsrecht:</span>{' '}

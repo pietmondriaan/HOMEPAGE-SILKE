@@ -4,7 +4,7 @@ export default function Contact() {
   const [ref, isVisible] = useScrollAnimation()
 
   return (
-    <section id="kontakt" className="py-24 lg:py-36 bg-canvas relative overflow-hidden">
+    <section id="kontakt" className="py-20 lg:py-28 bg-canvas relative overflow-hidden">
 
       {/* Blob-Dekorationen */}
       <div
@@ -22,7 +22,7 @@ export default function Contact() {
         ref={ref}
         className={`max-w-6xl mx-auto px-6 lg:px-8 animate-on-scroll ${isVisible ? 'is-visible' : ''}`}
       >
-        <div className="max-w-xl mx-auto text-center">
+        <div className="max-w-2xl mx-auto text-center">
 
           <p className="font-sans text-[10px] font-medium tracking-[0.2em] text-petrol uppercase mb-6">
             Kontakt
@@ -40,10 +40,10 @@ export default function Contact() {
             erreichen Sie mich direkt:
           </p>
 
-          <div className="space-y-5 text-left">
+          <div className="grid sm:grid-cols-2 gap-4 text-left">
 
             {/* Telefon */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 p-5 rounded-2xl border border-line bg-surface">
               <div className="w-10 h-10 rounded-full bg-petrol/12 flex items-center justify-center shrink-0 text-petrol">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.21 2 2 0 014 .02h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
@@ -58,7 +58,7 @@ export default function Contact() {
             </div>
 
             {/* E-Mail */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 p-5 rounded-2xl border border-line bg-surface">
               <div className="w-10 h-10 rounded-full bg-petrol/12 flex items-center justify-center shrink-0 text-petrol">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -74,7 +74,7 @@ export default function Contact() {
             </div>
 
             {/* Einzugsgebiet */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 p-5 rounded-2xl border border-line bg-surface">
               <div className="w-10 h-10 rounded-full bg-petrol/12 flex items-center justify-center shrink-0 text-petrol">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7z" />
@@ -88,7 +88,7 @@ export default function Contact() {
             </div>
 
             {/* Verfügbarkeit */}
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 p-5 rounded-2xl border border-line bg-surface">
               <div className="w-10 h-10 rounded-full bg-petrol/12 flex items-center justify-center shrink-0 text-petrol">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <circle cx="12" cy="12" r="10" />

@@ -27,13 +27,13 @@ export default function Faq() {
   }
 
   return (
-    <section id="faq" className="py-24 lg:py-36 bg-canvas">
+    <section id="faq" className="py-20 lg:py-28 bg-canvas">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
         <div
           ref={headerRef}
-          className={`max-w-xl mb-14 lg:mb-20 animate-on-scroll ${headerVisible ? 'is-visible' : ''}`}
+          className={`max-w-xl mb-10 lg:mb-12 animate-on-scroll ${headerVisible ? 'is-visible' : ''}`}
         >
           <p className="font-sans text-[10px] font-medium tracking-[0.2em] text-petrol uppercase mb-5">
             FAQ

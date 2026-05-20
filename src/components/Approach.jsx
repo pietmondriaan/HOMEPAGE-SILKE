@@ -25,7 +25,7 @@ export default function Approach() {
   const [ref, isVisible] = useScrollAnimation()
 
   return (
-    <section id="arbeitsweise" className="py-24 lg:py-36 bg-petrol relative overflow-hidden">
+    <section id="arbeitsweise" className="py-20 lg:py-28 bg-petrol relative overflow-hidden">
 
       {/* Helle Blob-Dekoration */}
       <div
@@ -38,7 +38,7 @@ export default function Approach() {
         ref={ref}
         className={`max-w-6xl mx-auto px-6 lg:px-8 animate-on-scroll ${isVisible ? 'is-visible' : ''}`}
       >
-        <div className="grid lg:grid-cols-[1fr,1.3fr] gap-14 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20 items-start">
 
           {/* Linke Spalte */}
           <div className="lg:sticky lg:top-28">

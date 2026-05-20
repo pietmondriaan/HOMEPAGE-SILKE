@@ -75,7 +75,7 @@ function ServiceCard({ service, index }) {
   return (
     <div
       ref={ref}
-      className={`animate-on-scroll group flex flex-col p-7 lg:p-8 rounded-2xl bg-canvas border border-line/50 hover:border-petrol/40 hover:shadow-[0_8px_24px_rgba(60,55,40,0.07)] transition-all duration-[280ms] ${
+      className={`animate-on-scroll group flex flex-col p-7 lg:p-8 rounded-2xl bg-surface border border-line hover:border-petrol/40 hover:shadow-[0_10px_30px_rgba(28,70,84,0.08)] transition-all duration-[280ms] lg:col-span-2 ${index === 3 ? 'lg:col-start-2' : ''} ${
         isVisible ? 'is-visible' : ''
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
@@ -96,7 +96,7 @@ function ServiceCard({ service, index }) {
         {service.description}
       </p>
 
-      <a href="#kontakt" className="mt-6 flex items-center gap-1.5 text-petrol text-[13px] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-[280ms]">
+      <a href="#kontakt" className="mt-6 flex items-center gap-1.5 text-petrol text-[13px] font-sans font-medium">
         <span>Anfragen</span>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="translate-x-0 group-hover:translate-x-0.5 transition-transform" aria-hidden="true">
           <path d="M2 7h10M8 3l4 4-4 4" />
@@ -110,14 +110,14 @@ export default function Services() {
   const [headerRef, headerVisible] = useScrollAnimation()
 
   return (
-    <section id="angebot" className="py-24 lg:py-36 bg-canvas relative">
+    <section id="angebot" className="py-20 lg:py-28 bg-canvas relative">
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
         <div
           ref={headerRef}
-          className={`max-w-xl mb-14 lg:mb-20 animate-on-scroll ${headerVisible ? 'is-visible' : ''}`}
+          className={`max-w-xl mb-12 lg:mb-16 animate-on-scroll ${headerVisible ? 'is-visible' : ''}`}
         >
           <p className="font-sans text-[10px] font-medium tracking-[0.2em] text-petrol uppercase mb-5">
             Angebot
@@ -134,7 +134,7 @@ export default function Services() {
         </div>
 
         {/* Cards — 5-card Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-5">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
