@@ -24,3 +24,6 @@ dist-ssr
 
 # Superpowers Brainstorming-Artefakte
 .superpowers/
+
+# Lokale Kontext-/Secrets-Datei (Cloudflare-Token, Account-IDs) — NIE committen
+KONTEXT-FUER-CLAUDE.md
