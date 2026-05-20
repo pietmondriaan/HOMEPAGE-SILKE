@@ -12,16 +12,22 @@ export default function Hero() {
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-28 pb-12 lg:pt-36 lg:pb-20">
         <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 lg:gap-16 items-center">
 
-          {/* Silke — links, geht unten organisch in den Petrol-Blob über */}
+          {/* Silke — auf Desktop links, mobil unter dem Text */}
           <div
-            className="animate-fade-up"
+            className="animate-fade-up order-2 lg:order-1"
             style={{ animationDelay: '300ms' }}
           >
             <div className="relative mx-auto w-[270px] sm:w-[330px] lg:w-full lg:max-w-[400px]">
               {/* Petrol-Blob als Markenfläche, in die die Figur übergeht */}
               <div
                 className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[106%] h-[84%] bg-petrol animate-blob-morph"
-                style={{ borderRadius: '58% 42% 45% 55% / 55% 52% 48% 45%' }}
+                style={{
+                  borderRadius: '58% 42% 45% 55% / 55% 52% 48% 45%',
+                  WebkitMaskImage:
+                    'linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%)',
+                  maskImage:
+                    'linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%)',
+                }}
                 aria-hidden="true"
               />
               <div
@@ -43,14 +49,14 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Text — rechts */}
-          <div>
-            <img
-              src="/logo-silke.png"
-              alt="Silke Burkhardt — Supervision, Coaching & Teamentwicklung"
-              className="animate-fade-up h-24 lg:h-28 w-auto mb-7"
+          {/* Text — auf Desktop rechts, mobil oben */}
+          <div className="order-1 lg:order-2">
+            <span
+              className="animate-fade-up inline-block text-xs uppercase tracking-[0.16em] text-petrol font-sans font-medium mb-4"
               style={{ animationDelay: '0ms' }}
-            />
+            >
+              Supervision & Coaching · Kärnten & Steiermark
+            </span>
 
             <h1
               className="animate-fade-up font-serif font-normal leading-[1.1] tracking-[-0.02em] text-azure mb-6"
