@@ -1,54 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  /* Bone/Off-White — Haupthintergrund */
-  --color-cream: #F0EDE6;
-  --color-paper: #F5F2EC;
+  /* Flächen */
+  --color-canvas: #F1F7F7;       /* Seitenhintergrund, blasses Azurblau */
+  --color-surface: #FFFFFF;      /* Karten, Panels */
+  --color-petrol-pale: #E6F1F2;  /* dezente Petrol-Fläche */
 
-  /* Stone — Neutrale Grautöne */
-  --color-sand: #E8E5DE;
-  --color-sand-dark: #D2CEC4;
-
-  /* Salbeigrün — Primärfarbe */
-  --color-sage: #6E9774;
-  --color-sage-light: #9CB89E;
-  --color-sage-dark: #5C8062;
-  --color-sage-deeper: #4B6850;
-  --color-sage-pale: #F1F5F1;
-  --color-sage-bg: #DCE6DC;
-
-  /* Terrakotta — Warmer Akzent, sehr sparsam */
-  --color-terra: #B8835C;
-  --color-terra-dark: #8A5A3A;
+  /* Marke */
+  --color-petrol: #318F9A;       /* Logo-/Markenfarbe */
+  --color-petrol-dark: #2A7A84;  /* Hover */
 
   /* Text */
-  --color-bark: #1F1D19;
-  --color-bark-light: #6B6659;
+  --color-azure: #1C4654;        /* Überschriften, dunkles Azurblau */
+  --color-ink: #43403C;          /* Fließtext, dunkles Grau */
+  --color-ink-soft: #5F6B6D;     /* Sekundärtext */
 
-  /* Sand-Töne */
-  --color-gold: #B89F7A;
-  --color-gold-light: #D8C5A6;
+  /* Linien */
+  --color-line: #E2EAEB;
+  --color-line-soft: #EAF1F1;
 
   /* Schriften */
-  --font-sans: 'Inter Tight', 'Helvetica Neue', system-ui, sans-serif;
-  --font-serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'League Spartan', system-ui, sans-serif;
+  --font-serif: 'Cardo', Georgia, 'Times New Roman', serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-sans);
-  color: var(--color-bark);
-  background-color: var(--color-cream);
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: var(--color-sage);
+  background-color: var(--color-petrol);
   color: white;
 }
 
