@@ -2,27 +2,53 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-canvas">
 
-      {/* Weicher Blob hinter dem Portrait */}
+      {/* dezente Blob-Dekoration hinter dem Text */}
       <div
-        className="absolute right-0 top-0 w-[640px] h-[640px] bg-petrol/[0.07] animate-blob-morph pointer-events-none hidden lg:block"
-        style={{ borderRadius: '62% 38% 48% 52% / 55% 45% 55% 45%', transform: 'translate(26%, -14%)' }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -bottom-24 -left-32 w-[300px] h-[280px] bg-petrol/[0.06] animate-blob-morph pointer-events-none"
-        style={{ borderRadius: '38% 62% 52% 48% / 45% 55% 45% 55%', animationDelay: '-5s' }}
+        className="absolute -top-28 -right-32 w-[460px] h-[460px] bg-petrol/[0.06] animate-blob-morph pointer-events-none"
+        style={{ borderRadius: '62% 38% 48% 52% / 55% 45% 55% 45%' }}
         aria-hidden="true"
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <div className="grid lg:grid-cols-[1.07fr_0.93fr] gap-12 lg:gap-16 items-center">
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-28 pb-12 lg:pt-36 lg:pb-20">
+        <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 lg:gap-16 items-center">
 
-          {/* Textspalte */}
+          {/* Silke — links, geht unten organisch in den Petrol-Blob über */}
+          <div
+            className="animate-fade-up"
+            style={{ animationDelay: '300ms' }}
+          >
+            <div className="relative mx-auto w-[270px] sm:w-[330px] lg:w-full lg:max-w-[400px]">
+              {/* Petrol-Blob als Markenfläche, in die die Figur übergeht */}
+              <div
+                className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[106%] h-[84%] bg-petrol animate-blob-morph"
+                style={{ borderRadius: '58% 42% 45% 55% / 55% 52% 48% 45%' }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute -left-3 top-1/3 w-10 h-10 rounded-full bg-petrol/20"
+                aria-hidden="true"
+              />
+              {/* freigestellte Figur — unten weich auslaufend, kein harter Schnitt, kein Schatten */}
+              <img
+                src="/silke-hero.png"
+                alt="Mag. Silke Burkhardt — Supervisorin, Coach und Teamentwicklerin"
+                className="relative z-10 w-full h-auto"
+                style={{
+                  WebkitMaskImage:
+                    'linear-gradient(to bottom, #000 0%, #000 70%, transparent 97%)',
+                  maskImage:
+                    'linear-gradient(to bottom, #000 0%, #000 70%, transparent 97%)',
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Text — rechts */}
           <div>
             <img
               src="/logo-silke.png"
               alt="Silke Burkhardt — Supervision, Coaching & Teamentwicklung"
-              className="animate-fade-up h-28 lg:h-32 w-auto mb-8"
+              className="animate-fade-up h-24 lg:h-28 w-auto mb-7"
               style={{ animationDelay: '0ms' }}
             />
 
@@ -85,27 +111,6 @@ export default function Hero() {
                   {item}
                 </span>
               ))}
-            </div>
-          </div>
-
-          {/* Portrait — freigestellt vor Petrol-Blob */}
-          <div
-            className="animate-fade-up flex justify-center lg:justify-end"
-            style={{ animationDelay: '320ms' }}
-          >
-            <div className="relative w-[260px] sm:w-[300px] lg:w-[350px]">
-              <div
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[120%] aspect-square bg-petrol animate-blob-morph"
-                style={{ borderRadius: '62% 38% 48% 52% / 55% 45% 55% 45%' }}
-                aria-hidden="true"
-              />
-              <div className="absolute bottom-3 -left-4 w-14 h-14 rounded-full bg-petrol/20" aria-hidden="true" />
-              <div className="absolute top-8 -right-3 w-8 h-8 rounded-full bg-petrol/30" aria-hidden="true" />
-              <img
-                src="/silke-hero.png"
-                alt="Mag. Silke Burkhardt — Supervisorin, Coach und Teamentwicklerin"
-                className="relative z-10 w-full h-auto drop-shadow-[0_20px_34px_rgba(28,70,84,0.20)]"
-              />
             </div>
           </div>
 
