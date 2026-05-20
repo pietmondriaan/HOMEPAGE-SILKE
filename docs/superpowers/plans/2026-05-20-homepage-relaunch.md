@@ -14,6 +14,8 @@
 
 **Dev-Server-Hinweis:** Michael arbeitet remote vom ThinkPad. Dev-Server immer mit `npm run dev -- --host` starten; Vorschau-URL = `http://100.109.175.125:5173`.
 
+**Build-Hinweis (wichtig):** `npm run build`/`npm run dev` scheitern in dieser Umgebung, weil der Projektpfad ein `&` enthält (`06 Web & Software`) — das bricht die `.cmd`-Wrapper in `node_modules\.bin\`. Stattdessen Vite direkt über Node aufrufen: `node node_modules/vite/bin/vite.js build` · `node node_modules/vite/bin/vite.js dev --host` · `node node_modules/vite/bin/vite.js preview --host`. Funktional identisch. (Verifiziert in Task 1.)
+
 ---
 
 ## Datei-Struktur
