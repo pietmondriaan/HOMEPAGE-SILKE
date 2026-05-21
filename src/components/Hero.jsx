@@ -10,7 +10,7 @@ export default function Hero() {
       />
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-28 pb-12 lg:pt-36 lg:pb-20">
-        <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[0.92fr_1.08fr] gap-8 lg:gap-16 items-start">
 
           {/* Silke — auf Desktop links, mobil unter dem Text */}
           <div
