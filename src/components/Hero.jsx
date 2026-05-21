@@ -17,34 +17,12 @@ export default function Hero() {
             className="animate-fade-up order-2 lg:order-1"
             style={{ animationDelay: '300ms' }}
           >
-            <div className="relative mx-auto w-[270px] sm:w-[330px] lg:w-full lg:max-w-[400px]">
-              {/* Petrol-Blob als Markenfläche, in die die Figur übergeht */}
-              <div
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[106%] h-[84%] bg-petrol animate-blob-morph"
-                style={{
-                  borderRadius: '58% 42% 45% 55% / 55% 52% 48% 45%',
-                  WebkitMaskImage:
-                    'linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%)',
-                  maskImage:
-                    'linear-gradient(to bottom, #000 0%, #000 80%, transparent 100%)',
-                }}
-                aria-hidden="true"
-              />
-              <div
-                className="absolute -left-3 top-1/3 w-10 h-10 rounded-full bg-petrol/20"
-                aria-hidden="true"
-              />
-              {/* freigestellte Figur — unten weich auslaufend, kein harter Schnitt, kein Schatten */}
+            <div className="mx-auto w-[230px] sm:w-[280px] lg:w-full lg:max-w-[330px]">
+              {/* ordentliches rechteckiges Foto, dezent gerundet */}
               <img
-                src="/silke-hero.png"
+                src="/silke-portrait.jpg"
                 alt="Mag. Silke Burkhardt — Supervisorin, Coach und Teamentwicklerin"
-                className="relative z-10 w-full h-auto"
-                style={{
-                  WebkitMaskImage:
-                    'linear-gradient(to bottom, #000 0%, #000 70%, transparent 97%)',
-                  maskImage:
-                    'linear-gradient(to bottom, #000 0%, #000 70%, transparent 97%)',
-                }}
+                className="w-full h-auto rounded-2xl shadow-lg"
               />
             </div>
           </div>
