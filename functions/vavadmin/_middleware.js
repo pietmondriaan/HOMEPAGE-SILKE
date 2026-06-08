@@ -5,10 +5,16 @@ import { getSessionFromRequest } from '../_lib/session.js'
 export async function onRequest({ request, env, next, data }) {
   const url = new URL(request.url)
 
-  // Allow login POST and GET /vavadmin (login page)
-  const isLoginPost = url.pathname === '/vavadmin/login' && request.method === 'POST'
+  // Public routes — no session required
+  const publicPaths = [
+    '/vavadmin/login',
+    '/vavadmin/reset-request',
+    '/vavadmin/reset-confirm',
+    '/vavadmin/oauth-start',
+    '/vavadmin/oauth-callback',
+  ]
   const isAdminGet = url.pathname === '/vavadmin' && request.method === 'GET'
-  if (isLoginPost || isAdminGet) return next()
+  if (isAdminGet || publicPaths.includes(url.pathname)) return next()
 
   const session = await getSessionFromRequest(request, env.SESSION_SECRET)
   if (!session) {
