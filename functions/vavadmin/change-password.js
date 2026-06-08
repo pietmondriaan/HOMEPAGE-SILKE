@@ -10,10 +10,11 @@ export async function onRequestPost({ request, env }) {
     return Response.json({ ok: false, message: 'Passwort zu kurz (min. 6 Zeichen).' }, { status: 400 })
   }
 
-  // First login: no KV hash stored yet → allow change without current password
-  const storedHash = await env.CONTENT_KV.get(`password-${env.CUSTOMER_ID}`)
-  if (!storedHash) {
+  // Force-change: needs-change flag set → allow without current password
+  const needsChange = await env.CONTENT_KV.get(`password-needs-change-${env.CUSTOMER_ID}`)
+  if (needsChange) {
     await env.CONTENT_KV.put(`password-${env.CUSTOMER_ID}`, await hashPassword(newPassword))
+    await env.CONTENT_KV.delete(`password-needs-change-${env.CUSTOMER_ID}`)
     return Response.json({ ok: true, message: 'Passwort gespeichert.' })
   }
 

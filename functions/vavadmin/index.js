@@ -108,7 +108,7 @@ function loginPage({ hasGoogle = false, hasFacebook = false, oauthError = null, 
     ${hasGoogle || hasFacebook ? `<div class="divider">oder</div>` : ''}
 
     <div class="pw-wrap">
-      <input type="password" id="pw" placeholder="Passwort" autofocus />
+      <input type="password" id="pw" placeholder="Passwort" autofocus autocorrect="off" autocapitalize="none" spellcheck="false" />
       <button class="pw-toggle" type="button" onclick="togglePw()" title="Passwort anzeigen">👁</button>
     </div>
     <button class="btn-login" onclick="login()">Anmelden</button>
@@ -567,15 +567,15 @@ export async function onRequest({ request, env }) {
 
   const today = new Date().toISOString().split('T')[0]
   const id = env.CUSTOMER_ID
-  const [previewCount, publishCount, storedHash] = await Promise.all([
+  const [previewCount, publishCount, needsChange] = await Promise.all([
     env.CONTENT_KV.get(`limit-${id}-${today}-preview`),
     env.CONTENT_KV.get(`limit-${id}-${today}-publish`),
-    env.CONTENT_KV.get(`password-${id}`),
+    env.CONTENT_KV.get(`password-needs-change-${id}`),
   ])
 
   const previewsLeft = Math.max(0, parseInt(env.PREVIEW_LIMIT_PER_DAY) - parseInt(previewCount ?? '0'))
   const publishesLeft = Math.max(0, parseInt(env.PUBLISH_LIMIT_PER_DAY) - parseInt(publishCount ?? '0'))
-  const mustChangePassword = !session.isMaster && !storedHash
+  const mustChangePassword = !session.isMaster && !!needsChange
 
   return new Response(adminPanel(previewsLeft, publishesLeft, mustChangePassword), {
     headers: { 'Content-Type': 'text/html' },
