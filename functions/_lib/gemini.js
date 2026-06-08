@@ -28,7 +28,7 @@ export async function callGemini({ apiKey, systemPrompt, userMessage }) {
   if (!res.ok) throw new Error(`Gemini API error: ${res.status}`)
   const data = await res.json()
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text ?? '{}'
-  return JSON.parse(text)
+  try { return JSON.parse(text) } catch { return {} }
 }
 
 export function buildSystemPrompt(currentContent) {
