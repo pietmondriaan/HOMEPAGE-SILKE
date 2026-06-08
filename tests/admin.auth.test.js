@@ -3,6 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { makeEnv } from './helpers/mock-env.js'
 import { createSession, verifySession } from '../functions/_lib/session.js'
 import { handleLogin } from '../functions/admin/login.js'
+import { onRequestPost as handleLogout } from '../functions/admin/logout.js'
 
 describe('session', () => {
   it('creates and verifies a session token', async () => {
@@ -61,5 +62,15 @@ describe('POST /admin/login', () => {
 
     const res = await handleLogin({ request: req, env })
     expect(res.status).toBe(401)
+  })
+})
+
+describe('POST /admin/logout', () => {
+  it('clears session cookie', async () => {
+    const res = await handleLogout()
+    expect(res.status).toBe(200)
+    const cookie = res.headers.get('Set-Cookie')
+    expect(cookie).toContain('vas_session=')
+    expect(cookie).toContain('Max-Age=0')
   })
 })
