@@ -1,72 +1,43 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { useContent } from '../hooks/useContent'
 
-const services = [
-  {
-    eyebrow: 'Reflexion',
-    title: 'Einzel- & Teamsupervision',
-    description:
-      'Reflexion, die trägt. Begleitung für einzelne Fachkräfte und ganze Teams — für mehr Klarheit, Entlastung und Stabilität im Berufsalltag.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <circle cx="8" cy="8" r="3" />
-        <circle cx="16" cy="8" r="3" />
-        <path d="M2 20c0-4 2.7-6 6-6M16 14c3.3 0 6 2 6 6" />
-        <path d="M9 20c0-3 1.3-5 3-5s3 2 3 5" />
-      </svg>
-    ),
-  },
-  {
-    eyebrow: 'Führung',
-    title: 'Coaching für Fach- & Führungskräfte',
-    description:
-      'Orientierung in komplexen Leitungsrollen. Ein vertraulicher Raum für Entscheidungen, Rollenklärung und persönliche Weiterentwicklung.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <circle cx="12" cy="5" r="2" />
-        <circle cx="5" cy="19" r="2" />
-        <circle cx="19" cy="19" r="2" />
-        <path d="M12 7v4M12 11l-5.3 6.5M12 11l5.3 6.5" />
-      </svg>
-    ),
-  },
-  {
-    eyebrow: 'Fallarbeit',
-    title: 'Fachliche Fallbegleitung',
-    description:
-      'Begleitung in komplexen Fallsituationen — mit dem Ziel, Handlungssicherheit dort (wieder)herzustellen, wo der Berufsalltag an Grenzen stößt.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M9 11l3 3L22 4" />
-        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-      </svg>
-    ),
-  },
-  {
-    eyebrow: 'Organisation',
-    title: 'Konzept- & Prozessbegleitung',
-    description:
-      'Unterstützung bei Qualitätsentwicklung, konzeptioneller Neuausrichtung und Veränderungsprozessen in Organisationen der sozialen Arbeit.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <rect x="3" y="3" width="8" height="8" rx="1.5" />
-        <rect x="13" y="3" width="8" height="8" rx="1.5" />
-        <rect x="3" y="13" width="8" height="8" rx="1.5" />
-        <rect x="13" y="13" width="8" height="8" rx="1.5" />
-      </svg>
-    ),
-  },
-  {
-    eyebrow: 'Wissen',
-    title: 'Workshops & Klausurbegleitung',
-    description:
-      'Halb- und Tagesformate zu spezifischen Fachthemen sowie die Begleitung von Team-Klausuren — praxisnah und auf Ihren Bedarf zugeschnitten.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <path d="M16 2v4M8 2v4M3 10h18" />
-      </svg>
-    ),
-  },
+const SERVICE_ICONS = [
+  (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <circle cx="8" cy="8" r="3" />
+      <circle cx="16" cy="8" r="3" />
+      <path d="M2 20c0-4 2.7-6 6-6M16 14c3.3 0 6 2 6 6" />
+      <path d="M9 20c0-3 1.3-5 3-5s3 2 3 5" />
+    </svg>
+  ),
+  (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <circle cx="12" cy="5" r="2" />
+      <circle cx="5" cy="19" r="2" />
+      <circle cx="19" cy="19" r="2" />
+      <path d="M12 7v4M12 11l-5.3 6.5M12 11l5.3 6.5" />
+    </svg>
+  ),
+  (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <path d="M9 11l3 3L22 4" />
+      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+    </svg>
+  ),
+  (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <rect x="3" y="3" width="8" height="8" rx="1.5" />
+      <rect x="13" y="3" width="8" height="8" rx="1.5" />
+      <rect x="3" y="13" width="8" height="8" rx="1.5" />
+      <rect x="13" y="13" width="8" height="8" rx="1.5" />
+    </svg>
+  ),
+  (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+    </svg>
+  ),
 ]
 
 function ServiceCard({ service, index }) {
@@ -81,7 +52,7 @@ function ServiceCard({ service, index }) {
       style={{ transitionDelay: `${index * 80}ms` }}
     >
       <div className="w-11 h-11 rounded-xl bg-petrol/10 flex items-center justify-center text-petrol group-hover:bg-petrol group-hover:text-white transition-all duration-[280ms] mb-5">
-        {service.icon}
+        {SERVICE_ICONS[index % SERVICE_ICONS.length]}
       </div>
 
       <p className="font-sans text-[10px] font-medium tracking-[0.16em] text-petrol/70 uppercase mb-2">
@@ -107,6 +78,8 @@ function ServiceCard({ service, index }) {
 }
 
 export default function Services() {
+  const content = useContent()
+  const services = content.services
   const [headerRef, headerVisible] = useScrollAnimation()
 
   return (

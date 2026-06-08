@@ -1,19 +1,10 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-
-const stats = [
-  { value: '24', label: 'Jahre Berufspraxis in der sozialen Arbeit' },
-  { value: '3', label: 'intensive Betreuungssettings in Leitung (2016–2026)' },
-  { value: '2026', label: 'bewusster Schritt in die Selbstständigkeit' },
-]
-
-const qualifications = [
-  'Mag. — Pädagogik',
-  'Sozial- und Integrationspädagogin',
-  'Lebens- & Sozialberatung (Gewerbe)',
-  'Unternehmensberatung (Gewerbe)',
-]
+import { useContent } from '../hooks/useContent'
 
 export default function About() {
+  const content = useContent()
+  const stats = content.about.stats
+  const qualifications = content.about.qualifications
   const [ref, isVisible] = useScrollAnimation()
 
   return (
@@ -28,7 +19,7 @@ export default function About() {
           {/* Linke Spalte — Überschrift + Eckdaten */}
           <div>
             <p className="font-sans text-[10px] font-semibold tracking-[0.2em] text-petrol uppercase mb-5">
-              Über mich
+              {content.about.heading}
             </p>
             <h2
               className="font-serif font-normal text-azure leading-[1.16] mb-9"
@@ -54,21 +45,7 @@ export default function About() {
           {/* Rechte Spalte — Text + Qualifikationen */}
           <div>
             <div className="space-y-4 text-ink text-base leading-[1.8]">
-              <p>
-                Mein Fachwissen ist in 24 Jahren sozialpädagogischer Praxis gewachsen —
-                zuletzt, von 2016 bis 2026, als Leiterin dreier intensiver Betreuungssettings.
-              </p>
-              <p>
-                In dieser Zeit habe ich Mitarbeiter*innenentwicklung, fachliche
-                Qualitätssicherung und konzeptionelle Neuausrichtung verantwortet — mit dem
-                Fokus auf stabile Teams als Grundlage gelingenden Kinderschutzes.
-              </p>
-              <p>
-                2026 habe ich mich bewusst aus der Anstellung gelöst, um Fach- und
-                Führungskräfte an anderer Stelle selbstbestimmt zu begleiten. Ich kenne den
-                Ruf nach Handlungssicherheit und Entlastung aus allen Perspektiven — und ich
-                kenne Wege, ihm zu begegnen.
-              </p>
+              <p>{content.about.text}</p>
             </div>
 
             <p className="font-sans text-[10px] font-semibold tracking-[0.2em] text-petrol uppercase mt-10 mb-4">
