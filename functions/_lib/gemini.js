@@ -12,14 +12,19 @@ export function applyJsonDiff(base, diff) {
   return result
 }
 
-export async function callGemini({ apiKey, systemPrompt, userMessage }) {
+// messages: Array of { role: 'user'|'model', text: string }
+export async function callGemini({ apiKey, systemPrompt, messages }) {
+  const contents = messages.map(m => ({
+    role: m.role,
+    parts: [{ text: m.text }],
+  }))
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: userMessage }] }],
+        contents,
         systemInstruction: { parts: [{ text: systemPrompt }] },
         generationConfig: { responseMimeType: 'application/json', maxOutputTokens: 1024 },
       }),
@@ -32,14 +37,29 @@ export async function callGemini({ apiKey, systemPrompt, userMessage }) {
 }
 
 export function buildSystemPrompt(currentContent) {
-  return `Du bist ein Website-CMS. Der Nutzer beschreibt Änderungen auf Deutsch.
-Deine Aufgabe: Gib NUR ein JSON-Objekt zurück, das die geänderten Felder enthält (Diff-Format).
-Ändere NUR was der Nutzer explizit nennt. Lass alle anderen Felder weg.
+  return `Du bist ein Website-CMS-Assistent. Der Nutzer möchte seine Website auf Deutsch bearbeiten.
+
+DEINE AUFGABE:
+Entscheide zuerst, ob die Anfrage konkret genug ist:
+
+WENN die Anfrage konkret ist (klare Farbe, klarer Text, klare Änderung):
+→ Gib zurück: { "action": "update", "diff": { ...nur geänderte Felder... } }
+
+WENN die Anfrage zu vage ist (z.B. nur "Farbe ändern", "anpassen", "verbessern" ohne Details):
+→ Gib zurück: { "action": "ask", "question": "Deine kurze Rückfrage auf Deutsch" }
+
+Bei Rückfragen: konkret und freundlich fragen. Maximal 1 Frage. Beispiele:
+- "Welche Farbe soll der Button haben? (z.B. dunkelgrün, türkis, oder Hex-Code wie #2563eb)"
+- "Welchen Text soll der Haupttitel haben?"
+- "Möchtest du alle Services bearbeiten oder nur einen bestimmten?"
+
+Bei Änderungen (action: update):
+- Ändere NUR was explizit genannt wird
+- Farben immer als #hex-Wert (z.B. #16a34a für grün)
+- Erlaubte Felder: meta (business_name, tagline, primary_color, secondary_color), hero (title, subtitle, cta_text, eyebrow), about (text, heading), services (Array aus {eyebrow, title, description}), contact (phone, email, address)
 
 Aktueller Website-Inhalt:
 ${JSON.stringify(currentContent, null, 2)}
 
-Erlaubte Felder: meta (business_name, tagline, primary_color, secondary_color), hero (title, subtitle, cta_text, eyebrow), about (text, heading), services (Array aus {eyebrow, title, description}), contact (phone, email, address).
-Gibt der Nutzer eine neue Farbe an: wandle sie in einen #hex-Wert um.
 Antworte AUSSCHLIESSLICH mit validem JSON. Kein Text davor oder danach.`
 }

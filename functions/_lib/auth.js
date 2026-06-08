@@ -1,5 +1,10 @@
 // functions/_lib/auth.js
-// Constant-time string comparison (prevents timing attacks)
+
+async function sha256hex(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text))
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('')
+}
+
 function safeEquals(a, b) {
   if (typeof a !== 'string' || typeof b !== 'string') return false
   if (a.length !== b.length) return false
@@ -10,8 +15,19 @@ function safeEquals(a, b) {
   return result === 0
 }
 
-export function checkPassword(input, env) {
+export async function checkPassword(input, env) {
   if (safeEquals(input, env.MASTER_PASSWORD)) return { valid: true, isMaster: true }
-  if (safeEquals(input, env.CUSTOMER_PASSWORD)) return { valid: true, isMaster: false }
+  // Check KV-stored password hash first (set via change-password)
+  const storedHash = await env.CONTENT_KV.get(`password-${env.CUSTOMER_ID}`)
+  if (storedHash) {
+    const inputHash = await sha256hex(input)
+    if (safeEquals(inputHash, storedHash)) return { valid: true, isMaster: false }
+  } else if (safeEquals(input, env.CUSTOMER_PASSWORD)) {
+    return { valid: true, isMaster: false }
+  }
   return { valid: false, isMaster: false }
+}
+
+export async function hashPassword(password) {
+  return sha256hex(password)
 }

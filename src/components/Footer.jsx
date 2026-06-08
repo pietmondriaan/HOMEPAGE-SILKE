@@ -8,7 +8,7 @@ export default function Footer() {
 
           {/* Wortmarke */}
           <div className="leading-none">
-            <span className="font-serif text-sm font-normal text-azure">
+            <span className="font-serif text-sm font-normal text-azure" data-cms="meta.business_name">
               Silke Burkhardt
             </span>
           </div>
@@ -39,7 +39,7 @@ export default function Footer() {
           </nav>
 
           {/* Copyright */}
-          <p className="text-[11px] text-ink-soft/40">
+          <p className="text-[11px] text-ink-soft/40" data-cms="footer.copyright">
             © {year} Mag. Silke Burkhardt
           </p>
         </div>

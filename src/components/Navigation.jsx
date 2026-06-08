@@ -36,7 +36,7 @@ export default function Navigation() {
 
           {/* Wortmarke */}
           <a href="#" className="leading-none group">
-            <span className="font-serif text-[17px] font-normal text-azure group-hover:text-petrol transition-colors duration-[180ms]">
+            <span className="font-serif text-[17px] font-normal text-azure group-hover:text-petrol transition-colors duration-[180ms]" data-cms="meta.business_name">
               Silke Burkhardt
             </span>
           </a>
@@ -55,6 +55,7 @@ export default function Navigation() {
             <a
               href="#kontakt"
               className="font-sans text-[13px] font-medium px-5 py-2.5 bg-petrol text-white rounded-full hover:bg-petrol-dark transition-colors duration-[180ms]"
+              data-cms="nav.cta_text"
             >
               Erstgespräch
             </a>
@@ -101,6 +102,7 @@ export default function Navigation() {
             href="#kontakt"
             onClick={() => setIsMobileOpen(false)}
             className="mt-2 font-sans text-sm font-medium px-8 py-3 bg-petrol text-white rounded-full hover:bg-petrol-dark transition-colors duration-[180ms]"
+            data-cms="nav.cta_text_mobile"
           >
             Erstgespräch vereinbaren
           </a>

@@ -46,6 +46,7 @@ function ServiceCard({ service, index }) {
   return (
     <div
       ref={ref}
+      data-cms={"services." + index}
       className={`animate-on-scroll group flex flex-col p-7 lg:p-8 rounded-2xl bg-surface border border-line hover:border-petrol/40 hover:shadow-[0_10px_30px_rgba(28,70,84,0.08)] transition-all duration-[280ms] lg:col-span-2 ${index === 3 ? 'lg:col-start-2' : ''} ${
         isVisible ? 'is-visible' : ''
       }`}
@@ -55,15 +56,15 @@ function ServiceCard({ service, index }) {
         {SERVICE_ICONS[index % SERVICE_ICONS.length]}
       </div>
 
-      <p className="font-sans text-[10px] font-medium tracking-[0.16em] text-petrol/70 uppercase mb-2">
+      <p data-cms={"services." + index + ".eyebrow"} className="font-sans text-[10px] font-medium tracking-[0.16em] text-petrol/70 uppercase mb-2">
         {service.eyebrow}
       </p>
 
-      <h3 className="font-serif text-xl font-normal text-azure mb-3 leading-snug">
+      <h3 data-cms={"services." + index + ".title"} className="font-serif text-xl font-normal text-azure mb-3 leading-snug">
         {service.title}
       </h3>
 
-      <p className="text-[14px] leading-[1.75] text-ink-soft flex-1">
+      <p data-cms={"services." + index + ".description"} className="text-[14px] leading-[1.75] text-ink-soft flex-1">
         {service.description}
       </p>
 

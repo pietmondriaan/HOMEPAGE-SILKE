@@ -18,7 +18,7 @@ export default function About() {
         >
           {/* Linke Spalte — Überschrift + Eckdaten */}
           <div>
-            <p className="font-sans text-[10px] font-semibold tracking-[0.2em] text-petrol uppercase mb-5">
+            <p data-cms="about.heading" className="font-sans text-[10px] font-semibold tracking-[0.2em] text-petrol uppercase mb-5">
               {content.about.heading}
             </p>
             <h2
@@ -45,7 +45,7 @@ export default function About() {
           {/* Rechte Spalte — Text + Qualifikationen */}
           <div>
             <div className="space-y-4 text-ink text-base leading-[1.8]">
-              <p>{content.about.text}</p>
+              <p data-cms="about.text">{content.about.text}</p>
             </div>
 
             <p className="font-sans text-[10px] font-semibold tracking-[0.2em] text-petrol uppercase mt-10 mb-4">

@@ -26,7 +26,7 @@ export default function Contact() {
       >
         <div className="max-w-2xl mx-auto text-center">
 
-          <p className="font-sans text-[10px] font-medium tracking-[0.2em] text-petrol uppercase mb-6">
+          <p data-cms="contact.heading" className="font-sans text-[10px] font-medium tracking-[0.2em] text-petrol uppercase mb-6">
             {content.contact.heading}
           </p>
 
@@ -37,7 +37,7 @@ export default function Contact() {
             Lassen Sie uns ins Gespräch kommen.
           </h2>
 
-          <p className="text-ink text-base leading-[1.75] mb-10">
+          <p data-cms="contact.intro" className="text-ink text-base leading-[1.75] mb-10">
             {content.contact.intro}
           </p>
 
@@ -52,7 +52,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-[11px] font-medium tracking-wide text-ink-soft uppercase mb-0.5">Telefon</p>
-                <a href={"tel:" + content.contact.phone.replace(/\s/g, '')} className="text-ink hover:text-petrol transition-colors duration-[180ms] text-base font-normal">
+                <a data-cms="contact.phone" href={"tel:" + content.contact.phone.replace(/\s/g, '')} className="text-ink hover:text-petrol transition-colors duration-[180ms] text-base font-normal">
                   {content.contact.phone}
                 </a>
               </div>
@@ -68,7 +68,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-[11px] font-medium tracking-wide text-ink-soft uppercase mb-0.5">E-Mail</p>
-                <a href={"mailto:" + content.contact.email} className="text-ink hover:text-petrol transition-colors duration-[180ms] text-base font-normal">
+                <a data-cms="contact.email" href={"mailto:" + content.contact.email} className="text-ink hover:text-petrol transition-colors duration-[180ms] text-base font-normal">
                   {content.contact.email}
                 </a>
               </div>
@@ -84,7 +84,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-[11px] font-medium tracking-wide text-ink-soft uppercase mb-0.5">Einzugsgebiet</p>
-                <p className="text-ink text-base font-normal">{content.contact.address}</p>
+                <p data-cms="contact.address" className="text-ink text-base font-normal">{content.contact.address}</p>
               </div>
             </div>
 

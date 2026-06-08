@@ -34,6 +34,7 @@ export default function Hero() {
           {/* Text — auf Desktop rechts, mobil oben */}
           <div className="order-1 lg:order-2">
             <span
+              data-cms="hero.eyebrow"
               className="animate-fade-up inline-block text-xs uppercase tracking-[0.16em] text-petrol font-sans font-medium mb-4"
               style={{ animationDelay: '0ms' }}
             >
@@ -41,6 +42,7 @@ export default function Hero() {
             </span>
 
             <h1
+              data-cms="hero.title"
               className="animate-fade-up font-serif font-normal leading-[1.1] tracking-[-0.02em] text-azure mb-6"
               style={{
                 fontSize: 'clamp(2.2rem, 3.2vw, 3.35rem)',
@@ -52,6 +54,7 @@ export default function Hero() {
             </h1>
 
             <p
+              data-cms="hero.subtitle"
               className="animate-fade-up text-base lg:text-lg font-light leading-[1.7] text-ink-soft mb-8 max-w-xl"
               style={{ animationDelay: '160ms' }}
             >
@@ -63,6 +66,7 @@ export default function Hero() {
               style={{ animationDelay: '240ms' }}
             >
               <a
+                data-cms="hero.cta_text"
                 href="#kontakt"
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-petrol text-white font-sans text-sm font-medium rounded-full hover:bg-petrol-dark transition-colors duration-[180ms]"
               >
