@@ -6,7 +6,8 @@ export function makeMockKV(initial = {}) {
     async get(key, type) {
       const val = store.get(key) ?? null
       if (val === null) return null
-      return type === 'json' ? JSON.parse(val) : val
+      if (type === 'json') { try { return JSON.parse(val) } catch { return null } }
+      return val
     },
     async put(key, value, opts) {
       store.set(key, typeof value === 'string' ? value : JSON.stringify(value))
@@ -19,8 +20,8 @@ export function makeMockKV(initial = {}) {
 export function makeMockR2() {
   const store = new Map()
   return {
-    async put(key, body) { store.set(key, body) },
-    async get(key) { return store.has(key) ? { body: store.get(key) } : null },
+    async put(key, body, opts) { store.set(key, { body, contentType: opts?.httpMetadata?.contentType }) },
+    async get(key) { return store.has(key) ? store.get(key) : null },
     _store: store,
   }
 }
