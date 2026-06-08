@@ -16,14 +16,16 @@ function safeEquals(a, b) {
 }
 
 export async function checkPassword(input, env) {
-  if (safeEquals(input, env.MASTER_PASSWORD)) return { valid: true, isMaster: true }
-  // Check KV-stored password hash first (set via change-password)
+  // .trim() on env vars neutralises any \r\n encoding artefacts from secret storage
+  const masterPw = (env.MASTER_PASSWORD ?? '').trim()
+  if (masterPw && safeEquals(input, masterPw)) return { valid: true, isMaster: true }
+
   const storedHash = await env.CONTENT_KV.get(`password-${env.CUSTOMER_ID}`)
   if (storedHash) {
-    const inputHash = await sha256hex(input)
-    if (safeEquals(inputHash, storedHash)) return { valid: true, isMaster: false }
-  } else if (safeEquals(input, env.CUSTOMER_PASSWORD)) {
-    return { valid: true, isMaster: false }
+    if (safeEquals(await sha256hex(input), storedHash)) return { valid: true, isMaster: false }
+  } else {
+    const customerPw = (env.CUSTOMER_PASSWORD ?? '').trim()
+    if (customerPw && safeEquals(input, customerPw)) return { valid: true, isMaster: false }
   }
   return { valid: false, isMaster: false }
 }

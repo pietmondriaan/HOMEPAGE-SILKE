@@ -48,12 +48,18 @@ function loginPage({ hasGoogle = false, hasFacebook = false, oauthError = null, 
       color: #334155; font-size: 11px;
     }
     .divider::before, .divider::after { content: ''; flex: 1; border-top: 1px solid #1e293b; }
-    input[type="password"] {
+    .pw-wrap { position: relative; margin-bottom: 12px; }
+    .pw-wrap input {
       width: 100%; background: #0f172a; border: 1px solid #1e293b; border-radius: 10px;
-      padding: 13px 16px; color: #f1f5f9; font-size: 14px; margin-bottom: 12px;
+      padding: 13px 42px 13px 16px; color: #f1f5f9; font-size: 14px;
       transition: border-color .2s; font-family: inherit;
     }
-    input[type="password"]:focus { outline: none; border-color: #3b82f6; }
+    .pw-wrap input:focus { outline: none; border-color: #3b82f6; }
+    .pw-toggle {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; color: #475569; cursor: pointer; font-size: 17px; padding: 0; line-height: 1;
+    }
+    .pw-toggle:hover { color: #94a3b8; }
     button.btn-login {
       width: 100%; background: linear-gradient(135deg,#2563eb,#7c3aed); border: none;
       border-radius: 10px; padding: 13px; color: #fff; font-size: 14px;
@@ -101,7 +107,10 @@ function loginPage({ hasGoogle = false, hasFacebook = false, oauthError = null, 
 
     ${hasGoogle || hasFacebook ? `<div class="divider">oder</div>` : ''}
 
-    <input type="password" id="pw" placeholder="Passwort" autofocus />
+    <div class="pw-wrap">
+      <input type="password" id="pw" placeholder="Passwort" autofocus />
+      <button class="pw-toggle" type="button" onclick="togglePw()" title="Passwort anzeigen">👁</button>
+    </div>
     <button class="btn-login" onclick="login()">Anmelden</button>
     <div class="msg-err" id="err" style="display:none">Falsches Passwort.</div>
     <a class="link-reset" href="/vavadmin/reset-request">Passwort vergessen?</a>
@@ -109,6 +118,12 @@ function loginPage({ hasGoogle = false, hasFacebook = false, oauthError = null, 
   <div class="page-footer">© 2026 Vis-à-Vision</div>
   <script>
     document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') login() })
+    function togglePw() {
+      const input = document.getElementById('pw')
+      const btn = input.nextElementSibling
+      if (input.type === 'password') { input.type = 'text'; btn.textContent = '🙈' }
+      else { input.type = 'password'; btn.textContent = '👁' }
+    }
     async function login() {
       const pw = document.getElementById('pw').value
       const res = await fetch('/vavadmin/login', {
