@@ -1,0 +1,60 @@
+// src/content-schema.js
+export const DEFAULT_CONTENT = {
+  meta: {
+    business_name: 'Mag. Silke Burkhardt',
+    tagline: 'Supervision · Coaching · Teamentwicklung',
+    primary_color: '#2d4a6b',
+    secondary_color: '#f0f4f8',
+    font: 'Inter, sans-serif',
+  },
+  hero: {
+    eyebrow: 'Supervision & Coaching · Kärnten & Steiermark',
+    title: 'Begleitung, die Klarheit schafft.',
+    subtitle: 'Professionelle Unterstützung für Fachkräfte, Teams und Führungspersonen in sozialen Berufsfeldern.',
+    cta_text: 'Erstgespräch vereinbaren',
+    portrait_image: '/silke-portrait.jpg',
+  },
+  about: {
+    heading: 'Über mich',
+    text: 'Mit 24 Jahren Berufspraxis in der sozialen Arbeit begleite ich Menschen und Organisationen in Veränderungs- und Entwicklungsprozessen.',
+    stats: [
+      { value: '24', label: 'Jahre Berufspraxis in der sozialen Arbeit' },
+      { value: '3', label: 'intensive Betreuungssettings in Leitung (2016–2026)' },
+      { value: '2026', label: 'bewusster Schritt in die Selbstständigkeit' },
+    ],
+    qualifications: [
+      'Mag. — Pädagogik',
+      'Sozial- und Integrationspädagogin',
+      'Lebens- & Sozialberatung (Gewerbe)',
+      'Unternehmensberatung (Gewerbe)',
+    ],
+  },
+  services: [
+    {
+      eyebrow: 'Reflexion',
+      title: 'Einzel- & Teamsupervision',
+      description: 'Reflexion, die trägt. Begleitung für einzelne Fachkräfte und ganze Teams — für mehr Klarheit, Entlastung und Stabilität im Berufsalltag.',
+    },
+    {
+      eyebrow: 'Führung',
+      title: 'Coaching für Fach- & Führungskräfte',
+      description: 'Orientierung in komplexen Leitungsrollen. Ein vertraulicher Raum für Entscheidungen, Rollenklärung und persönliche Weiterentwicklung.',
+    },
+    {
+      eyebrow: 'Organisation',
+      title: 'Teamentwicklung & Organisationsberatung',
+      description: 'Gemeinsam stark. Entwicklungsprozesse für Teams und Organisationen, die nachhaltig wirken.',
+    },
+  ],
+  contact: {
+    heading: 'Kontakt',
+    intro: 'Ich freue mich auf Ihre Nachricht. Das Erstgespräch ist kostenlos und unverbindlich.',
+    phone: '+43 660 000 0000',
+    email: 'office@silkeburkhardt.at',
+    address: 'St. Michael ob Bleiburg, Kärnten',
+  },
+  footer: {
+    imprint_heading: 'Impressum',
+    privacy_heading: 'Datenschutz',
+  },
+}
