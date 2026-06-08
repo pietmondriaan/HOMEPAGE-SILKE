@@ -1,0 +1,18 @@
+# wrangler.toml
+name = "silke-burkhardt"
+pages_build_output_dir = "./dist"
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "CONTENT_KV"
+id = "REPLACE_WITH_KV_ID"
+preview_id = "REPLACE_WITH_PREVIEW_KV_ID"
+
+[[r2_buckets]]
+binding = "UPLOADS_R2"
+bucket_name = "vis-a-vision-uploads"
+
+[vars]
+CUSTOMER_ID = "silke"
+PREVIEW_LIMIT_PER_DAY = "20"
+PUBLISH_LIMIT_PER_DAY = "10"

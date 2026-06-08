@@ -27,3 +27,6 @@ dist-ssr
 
 # Lokale Kontext-/Secrets-Datei (Cloudflare-Token, Account-IDs) — NIE committen
 KONTEXT-FUER-CLAUDE.md
+
+# Wrangler local secrets — NIE committen
+.dev.vars
