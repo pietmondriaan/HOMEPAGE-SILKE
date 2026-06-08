@@ -1,5 +1,5 @@
-// functions/admin/transcribe.js
-// Receives audio blob, forwards to OpenAI Whisper, returns transcript text.
+// functions/vavadmin/transcribe.js
+// Receives audio blob, forwards to Groq Whisper (OpenAI-compatible API), returns transcript text.
 export async function onRequestPost({ request, env }) {
   let formData
   try { formData = await request.formData() } catch {
@@ -11,13 +11,13 @@ export async function onRequestPost({ request, env }) {
 
   const whisperForm = new FormData()
   whisperForm.append('file', audio, 'audio.webm')
-  whisperForm.append('model', 'whisper-1')
+  whisperForm.append('model', 'whisper-large-v3-turbo')
   whisperForm.append('language', 'de')
   whisperForm.append('prompt', 'Dies ist eine Anweisung zur Website-Bearbeitung auf Deutsch.')
 
-  const res = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+  const res = await fetch('https://api.groq.com/openai/v1/audio/transcriptions', {
     method: 'POST',
-    headers: { Authorization: `Bearer ${env.OPENAI_API_KEY}` },
+    headers: { Authorization: `Bearer ${env.GROQ_API_KEY}` },
     body: whisperForm,
   })
 
