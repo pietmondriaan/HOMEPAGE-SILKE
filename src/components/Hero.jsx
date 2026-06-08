@@ -1,4 +1,8 @@
+import { useContent } from '../hooks/useContent'
+
 export default function Hero() {
+  const content = useContent()
+  const { hero } = content
   return (
     <section className="relative overflow-hidden bg-canvas">
 
@@ -20,8 +24,8 @@ export default function Hero() {
             <div className="mx-auto w-[230px] sm:w-[280px] lg:w-full lg:max-w-[330px]">
               {/* ordentliches rechteckiges Foto, dezent gerundet */}
               <img
-                src="/silke-portrait.jpg"
-                alt="Mag. Silke Burkhardt — Supervisorin, Coach und Teamentwicklerin"
+                src={hero.portrait_image}
+                alt={content.meta.business_name}
                 className="w-full h-auto rounded-2xl shadow-lg"
               />
             </div>
@@ -33,7 +37,7 @@ export default function Hero() {
               className="animate-fade-up inline-block text-xs uppercase tracking-[0.16em] text-petrol font-sans font-medium mb-4"
               style={{ animationDelay: '0ms' }}
             >
-              Supervision & Coaching · Kärnten & Steiermark
+              {hero.eyebrow}
             </span>
 
             <h1
@@ -44,16 +48,14 @@ export default function Hero() {
                 textWrap: 'balance',
               }}
             >
-              Orientierung und Handlungssicherheit — für Teams und Leitungen in der sozialen Arbeit.
+              {hero.title}
             </h1>
 
             <p
               className="animate-fade-up text-base lg:text-lg font-light leading-[1.7] text-ink-soft mb-8 max-w-xl"
               style={{ animationDelay: '160ms' }}
             >
-              Supervision, Coaching und Teamentwicklung für Fach- und Führungskräfte in
-              betreuungsintensiven Arbeitsfeldern. Haltungs- und ressourcenorientiert,
-              getragen von 24 Jahren Praxis- und Leitungserfahrung.
+              {hero.subtitle}
             </p>
 
             <div
@@ -64,7 +66,7 @@ export default function Hero() {
                 href="#kontakt"
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-petrol text-white font-sans text-sm font-medium rounded-full hover:bg-petrol-dark transition-colors duration-[180ms]"
               >
-                Erstgespräch vereinbaren
+                {hero.cta_text}
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M2 7.5h11M9 3l4 4.5-4 4.5" />
                 </svg>
