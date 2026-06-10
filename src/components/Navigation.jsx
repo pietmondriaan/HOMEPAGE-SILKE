@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react'
-
-const navItems = [
-  { label: 'Angebot', href: '#angebot' },
-  { label: 'Über mich', href: '#ueber-mich' },
-  { label: 'Arbeitsweise', href: '#arbeitsweise' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Kontakt', href: '#kontakt' },
-]
+import { useContent } from '../hooks/useContent'
 
 export default function Navigation() {
+  const content = useContent()
+  const navItems = content.navigation.items
+  const ctaLabel = content.navigation.cta_label
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
 
@@ -25,6 +21,7 @@ export default function Navigation() {
 
   return (
     <nav
+      data-cms-section="navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[280ms] ${
         isScrolled
           ? 'bg-canvas/92 backdrop-blur-sm shadow-[0_1px_2px_rgba(31,29,25,0.06)]'
@@ -43,10 +40,11 @@ export default function Navigation() {
 
           {/* Desktop-Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <a
-                key={item.href}
-                href={item.href}
+                key={`${item.target}-${index}`}
+                href={item.target}
+                data-cms={`navigation.items.${index}.label`}
                 className="font-sans text-[13px] font-normal text-ink-soft hover:text-petrol transition-colors duration-[180ms] relative after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-px after:bg-petrol after:transition-all after:duration-[280ms] hover:after:w-full"
               >
                 {item.label}
@@ -55,9 +53,9 @@ export default function Navigation() {
             <a
               href="#kontakt"
               className="font-sans text-[13px] font-medium px-5 py-2.5 bg-petrol text-white rounded-full hover:bg-petrol-dark transition-colors duration-[180ms]"
-              data-cms="nav.cta_text"
+              data-cms="navigation.cta_label"
             >
-              Erstgespräch
+              {ctaLabel}
             </a>
           </div>
 
@@ -88,11 +86,12 @@ export default function Navigation() {
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-9">
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             <a
-              key={item.href}
-              href={item.href}
+              key={`${item.target}-${index}`}
+              href={item.target}
               onClick={() => setIsMobileOpen(false)}
+              data-cms={`navigation.items.${index}.label`}
               className="font-sans text-2xl text-ink hover:text-petrol transition-colors duration-[180ms]"
             >
               {item.label}
@@ -102,9 +101,9 @@ export default function Navigation() {
             href="#kontakt"
             onClick={() => setIsMobileOpen(false)}
             className="mt-2 font-sans text-sm font-medium px-8 py-3 bg-petrol text-white rounded-full hover:bg-petrol-dark transition-colors duration-[180ms]"
-            data-cms="nav.cta_text_mobile"
+            data-cms="navigation.cta_label"
           >
-            Erstgespräch vereinbaren
+            {ctaLabel}
           </a>
         </div>
       </div>

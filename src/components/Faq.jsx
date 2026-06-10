@@ -27,7 +27,7 @@ export default function Faq() {
   }
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-canvas">
+    <section id="faq" data-cms-section="faq" className="py-20 lg:py-28 bg-canvas">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}

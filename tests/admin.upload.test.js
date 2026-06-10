@@ -1,7 +1,7 @@
 // tests/admin.upload.test.js
 import { describe, it, expect } from 'vitest'
 import { makeMockKV, makeMockR2, makeEnv } from './helpers/mock-env.js'
-import { handleUpload } from '../functions/admin/upload.js'
+import { handleUpload } from '../functions/vavadmin/upload.js'
 
 function makeImageRequest(filename = 'test.jpg', mimeType = 'image/jpeg') {
   const formData = new FormData()

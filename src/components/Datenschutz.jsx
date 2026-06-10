@@ -1,6 +1,6 @@
 export default function Datenschutz() {
   return (
-    <section id="datenschutz" className="py-16 bg-canvas">
+    <section id="datenschutz" data-cms-section="datenschutz" className="py-16 bg-canvas">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         <h2 className="font-serif font-normal text-azure text-2xl mb-8">Datenschutzerklärung</h2>

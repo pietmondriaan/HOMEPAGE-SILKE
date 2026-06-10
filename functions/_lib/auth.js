@@ -15,18 +15,23 @@ function safeEquals(a, b) {
   return result === 0
 }
 
+// SHA-256("Admin") — default password for every new customer site
+const DEFAULT_HASH = 'c1c224b03cd9bc7b6a86d77f5dace40191766c485cd55dc48caf9ac873335d6f'
+
 export async function checkPassword(input, env) {
-  // .trim() on env vars neutralises any \r\n encoding artefacts from secret storage
+  // Master: env var with .trim() to neutralise any \r\n encoding artefacts
   const masterPw = (env.MASTER_PASSWORD ?? '').trim()
   if (masterPw && safeEquals(input, masterPw)) return { valid: true, isMaster: true }
 
-  const storedHash = await env.CONTENT_KV.get(`password-${env.CUSTOMER_ID}`)
-  if (storedHash) {
-    if (safeEquals(await sha256hex(input), storedHash)) return { valid: true, isMaster: false }
-  } else {
-    const customerPw = (env.CUSTOMER_PASSWORD ?? '').trim()
-    if (customerPw && safeEquals(input, customerPw)) return { valid: true, isMaster: false }
+  // Customer: KV hash (auto-seeded with Admin default on first call)
+  let storedHash = await env.CONTENT_KV.get(`password-${env.CUSTOMER_ID}`)
+  if (!storedHash) {
+    storedHash = DEFAULT_HASH
+    await env.CONTENT_KV.put(`password-${env.CUSTOMER_ID}`, DEFAULT_HASH)
+    await env.CONTENT_KV.put(`password-needs-change-${env.CUSTOMER_ID}`, '1')
   }
+  if (safeEquals(await sha256hex(input), storedHash)) return { valid: true, isMaster: false }
+
   return { valid: false, isMaster: false }
 }
 

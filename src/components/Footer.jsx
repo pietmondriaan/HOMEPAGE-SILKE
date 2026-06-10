@@ -1,8 +1,12 @@
+import { useContent } from '../hooks/useContent'
+
 export default function Footer() {
-  const year = new Date().getFullYear()
+  const content = useContent()
+  const navItems = content.navigation.items
+  const { footer } = content
 
   return (
-    <footer className="bg-canvas border-t border-line">
+    <footer data-cms-section="footer" className="bg-canvas border-t border-line">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-10">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
 
@@ -15,33 +19,35 @@ export default function Footer() {
 
           {/* Navigation */}
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[12px]" aria-label="Footer-Navigation">
-            <a href="#angebot" className="font-sans text-ink-soft/60 hover:text-petrol transition-colors duration-[180ms]">
-              Angebot
-            </a>
-            <a href="#ueber-mich" className="font-sans text-ink-soft/60 hover:text-petrol transition-colors duration-[180ms]">
-              Über mich
-            </a>
-            <a href="#arbeitsweise" className="font-sans text-ink-soft/60 hover:text-petrol transition-colors duration-[180ms]">
-              Arbeitsweise
-            </a>
-            <a href="#faq" className="font-sans text-ink-soft/60 hover:text-petrol transition-colors duration-[180ms]">
-              FAQ
-            </a>
-            <a href="#kontakt" className="font-sans text-ink-soft/60 hover:text-petrol transition-colors duration-[180ms]">
-              Kontakt
-            </a>
+            {navItems.map((item, index) => (
+              <a
+                key={`${item.target}-${index}`}
+                href={item.target}
+                data-cms={`navigation.items.${index}.label`}
+                className="font-sans text-ink-soft/60 hover:text-petrol transition-colors duration-[180ms]"
+              >
+                {item.label}
+              </a>
+            ))}
             <a href="#impressum" className="font-sans text-ink-soft/60 hover:text-petrol transition-colors duration-[180ms]">
-              Impressum
+              {footer.imprint_heading}
             </a>
             <a href="#datenschutz" className="font-sans text-ink-soft/60 hover:text-petrol transition-colors duration-[180ms]">
-              Datenschutz
+              {footer.privacy_heading}
             </a>
           </nav>
 
           {/* Copyright */}
-          <p className="text-[11px] text-ink-soft/40" data-cms="footer.copyright">
-            © {year} Mag. Silke Burkhardt
-          </p>
+          <div>
+            <p className="text-[11px] text-ink-soft/40" data-cms="footer.copyright">
+              {footer.copyright}
+            </p>
+            {footer.extra_line && (
+              <p className="text-[11px] text-ink-soft/40 mt-1" data-cms="footer.extra_line">
+                {footer.extra_line}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </footer>

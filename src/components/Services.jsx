@@ -84,7 +84,7 @@ export default function Services() {
   const [headerRef, headerVisible] = useScrollAnimation()
 
   return (
-    <section id="angebot" className="py-20 lg:py-28 bg-canvas relative">
+    <section id="angebot" data-cms-section="angebot" className="py-20 lg:py-28 bg-canvas relative">
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
 

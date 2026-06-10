@@ -25,7 +25,7 @@ export default function Approach() {
   const [ref, isVisible] = useScrollAnimation()
 
   return (
-    <section id="arbeitsweise" className="py-20 lg:py-28 bg-petrol relative overflow-hidden">
+    <section id="arbeitsweise" data-cms-section="arbeitsweise" className="py-20 lg:py-28 bg-petrol relative overflow-hidden">
 
       {/* Helle Blob-Dekoration */}
       <div

@@ -14,5 +14,5 @@ bucket_name = "vis-a-vision-uploads"
 
 [vars]
 CUSTOMER_ID = "silke"
-PREVIEW_LIMIT_PER_DAY = "20"
-PUBLISH_LIMIT_PER_DAY = "10"
+PREVIEW_LIMIT_PER_DAY = "10"
+PUBLISH_LIMIT_PER_DAY = "3"

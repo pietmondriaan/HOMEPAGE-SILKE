@@ -4,7 +4,7 @@ export default function Hero() {
   const content = useContent()
   const { hero } = content
   return (
-    <section className="relative overflow-hidden bg-canvas">
+    <section data-cms-section="hero" className="relative overflow-hidden bg-canvas">
 
       {/* dezente Blob-Dekoration hinter dem Text */}
       <div
@@ -24,6 +24,7 @@ export default function Hero() {
             <div className="mx-auto w-[230px] sm:w-[280px] lg:w-full lg:max-w-[330px]">
               {/* ordentliches rechteckiges Foto, dezent gerundet */}
               <img
+                data-cms="hero.portrait_image"
                 src={hero.portrait_image}
                 alt={content.meta.business_name}
                 className="w-full h-auto rounded-2xl shadow-lg"

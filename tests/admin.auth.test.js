@@ -2,8 +2,9 @@
 import { describe, it, expect } from 'vitest'
 import { makeEnv } from './helpers/mock-env.js'
 import { createSession, verifySession } from '../functions/_lib/session.js'
-import { handleLogin } from '../functions/admin/login.js'
-import { onRequestPost as handleLogout } from '../functions/admin/logout.js'
+import { handleLogin } from '../functions/vavadmin/login.js'
+import { onRequestPost as handleLogout } from '../functions/vavadmin/logout.js'
+import { hashPassword } from '../functions/_lib/auth.js'
 
 describe('session', () => {
   it('creates and verifies a session token', async () => {
@@ -25,6 +26,8 @@ describe('session', () => {
 describe('POST /admin/login', () => {
   it('sets session cookie on correct customer password', async () => {
     const env = makeEnv()
+    // Kundenpasswort liegt seit dem needs-change-Umbau als KV-Hash, nicht als Env-Var
+    await env.CONTENT_KV.put('password-silke', await hashPassword('test-customer-pw'))
     const req = new Request('https://example.com/admin/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

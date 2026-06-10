@@ -8,7 +8,7 @@ export default function About() {
   const [ref, isVisible] = useScrollAnimation()
 
   return (
-    <section id="ueber-mich" className="py-20 lg:py-28 bg-canvas relative">
+    <section id="ueber-mich" data-cms-section="ueber-mich" className="py-20 lg:py-28 bg-canvas relative">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div
           ref={ref}
@@ -29,12 +29,12 @@ export default function About() {
             </h2>
 
             <div className="space-y-5 border-t border-line pt-7">
-              {stats.map((stat) => (
+              {stats.map((stat, index) => (
                 <div key={stat.value} className="flex items-baseline gap-4">
-                  <span className="font-serif text-petrol text-2xl lg:text-[1.7rem] leading-none shrink-0 w-[5.5rem]">
+                  <span data-cms={`about.stats.${index}.value`} className="font-serif text-petrol text-2xl lg:text-[1.7rem] leading-none shrink-0 w-[5.5rem]">
                     {stat.value}
                   </span>
-                  <span className="font-sans text-[13px] leading-snug text-ink-soft">
+                  <span data-cms={`about.stats.${index}.label`} className="font-sans text-[13px] leading-snug text-ink-soft">
                     {stat.label}
                   </span>
                 </div>
@@ -52,9 +52,10 @@ export default function About() {
               Qualifikationen
             </p>
             <div className="grid sm:grid-cols-2 gap-2.5">
-              {qualifications.map((qual) => (
+              {qualifications.map((qual, index) => (
                 <div
                   key={qual}
+                  data-cms={`about.qualifications.${index}`}
                   className="flex items-center gap-3 font-sans text-sm text-ink py-3 px-4 rounded-xl border border-line bg-surface"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-petrol shrink-0" />

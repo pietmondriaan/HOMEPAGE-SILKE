@@ -6,7 +6,7 @@ export default function Contact() {
   const [ref, isVisible] = useScrollAnimation()
 
   return (
-    <section id="kontakt" className="py-20 lg:py-28 bg-canvas relative overflow-hidden">
+    <section id="kontakt" data-cms-section="kontakt" className="py-20 lg:py-28 bg-canvas relative overflow-hidden">
 
       {/* Blob-Dekorationen */}
       <div

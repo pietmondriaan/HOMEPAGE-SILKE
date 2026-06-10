@@ -2,8 +2,8 @@
 import { describe, it, expect } from 'vitest'
 import { makeMockKV, makeEnv } from './helpers/mock-env.js'
 import { DEFAULT_CONTENT } from '../src/content-schema.js'
-import { handlePublish } from '../functions/admin/publish.js'
-import { handleDiscard } from '../functions/admin/discard.js'
+import { handlePublish } from '../functions/vavadmin/publish.js'
+import { handleDiscard } from '../functions/vavadmin/discard.js'
 
 const MODIFIED = { ...DEFAULT_CONTENT, hero: { ...DEFAULT_CONTENT.hero, title: 'Modified' } }
 

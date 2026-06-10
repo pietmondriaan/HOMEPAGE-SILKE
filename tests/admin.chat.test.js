@@ -2,26 +2,28 @@
 import { describe, it, expect, vi } from 'vitest'
 import { makeMockKV, makeEnv } from './helpers/mock-env.js'
 import { DEFAULT_CONTENT } from '../src/content-schema.js'
-import { checkRateLimit } from '../functions/_lib/rate-limit.js'
+import { checkRateLimit, viennaDateKey } from '../functions/_lib/rate-limit.js'
 import { applyJsonDiff } from '../functions/_lib/gemini.js'
+
+const today = viennaDateKey()
 
 describe('checkRateLimit', () => {
   it('allows requests under the limit', async () => {
-    const kv = makeMockKV({ 'limit-silke-2026-01-01-preview': '5' })
-    const result = await checkRateLimit({ kv, customerId: 'silke', date: '2026-01-01', type: 'preview', max: 20, isMaster: false })
+    const kv = makeMockKV({ [`limit-silke-${today}-preview`]: '5' })
+    const result = await checkRateLimit({ kv, customerId: 'silke', type: 'preview', max: 20, isMaster: false })
     expect(result.allowed).toBe(true)
     expect(result.remaining).toBe(14)
   })
 
   it('blocks requests at the limit', async () => {
-    const kv = makeMockKV({ 'limit-silke-2026-01-01-preview': '20' })
-    const result = await checkRateLimit({ kv, customerId: 'silke', date: '2026-01-01', type: 'preview', max: 20, isMaster: false })
+    const kv = makeMockKV({ [`limit-silke-${today}-preview`]: '20' })
+    const result = await checkRateLimit({ kv, customerId: 'silke', type: 'preview', max: 20, isMaster: false })
     expect(result.allowed).toBe(false)
   })
 
   it('always allows master users', async () => {
-    const kv = makeMockKV({ 'limit-silke-2026-01-01-preview': '999' })
-    const result = await checkRateLimit({ kv, customerId: 'silke', date: '2026-01-01', type: 'preview', max: 20, isMaster: true })
+    const kv = makeMockKV({ [`limit-silke-${today}-preview`]: '999' })
+    const result = await checkRateLimit({ kv, customerId: 'silke', type: 'preview', max: 20, isMaster: true })
     expect(result.allowed).toBe(true)
   })
 })
