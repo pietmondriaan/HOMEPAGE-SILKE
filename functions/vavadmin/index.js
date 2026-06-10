@@ -10,6 +10,7 @@ function loginPage({ resetOk = false }) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anmelden — Vis-à-Vision</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23101418' stroke-width='7' stroke-linecap='round'%3E%3Cpath d='M10 23 10 17Q10 10 17 10L23 10'/%3E%3Cpath d='M41 10 47 10Q54 10 54 17L54 23'/%3E%3Cpath d='M54 41 54 47Q54 54 47 54L41 54'/%3E%3Cpath d='M23 54 17 54Q10 54 10 47L10 41'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='9' fill='%230F4C5C'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="/fonts/inter.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -85,12 +86,14 @@ function loginPage({ resetOk = false }) {
   <div class="login-panel">
   <div class="card">
     <div class="logo-ring" aria-hidden="true">
-      <svg width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="lg" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#8b5cf6"/>
-        </linearGradient></defs>
-        <polygon points="14,2 26,14 14,26 2,14" fill="url(#lg)"/>
-        <polygon points="14,7 21,14 14,21 7,14" fill="rgba(8,15,32,.4)"/>
+      <svg width="24" height="24" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#FAFAF7" stroke-width="5" stroke-linecap="round">
+          <path d="M 12 24 L 12 18 Q 12 12 18 12 L 24 12"/>
+          <path d="M 40 12 L 46 12 Q 52 12 52 18 L 52 24"/>
+          <path d="M 52 40 L 52 46 Q 52 52 46 52 L 40 52"/>
+          <path d="M 24 52 L 18 52 Q 12 52 12 46 L 12 40"/>
+        </g>
+        <circle cx="32" cy="32" r="7.5" fill="#2E8C9E"/>
       </svg>
     </div>
     <div class="login-header">
@@ -149,6 +152,7 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Admin — Website-Assistent</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23101418' stroke-width='7' stroke-linecap='round'%3E%3Cpath d='M10 23 10 17Q10 10 17 10L23 10'/%3E%3Cpath d='M41 10 47 10Q54 10 54 17L54 23'/%3E%3Cpath d='M54 41 54 47Q54 54 47 54L41 54'/%3E%3Cpath d='M23 54 17 54Q10 54 10 47L10 41'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='9' fill='%230F4C5C'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="/fonts/inter.css">
   <style>
     :root {
@@ -206,7 +210,8 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
       display: flex; align-items: center; gap: 7px; letter-spacing: .02em; flex-shrink: 0; flex-wrap: wrap;
     }
     .preview-header-label { flex: 1; white-space: nowrap; }
-    iframe { flex: 1; border: none; background: #fff; min-height: 0; }
+    .preview-viewport { flex: 1; min-height: 0; position: relative; overflow: hidden; background: #fff; }
+    .preview-viewport iframe { position: absolute; top: 0; left: 0; border: none; background: #fff; transform-origin: top left; }
     .preview-footer {
       background: rgba(6,12,24,.9); backdrop-filter: blur(10px);
       padding: 10px 12px; display: flex; gap: 8px; border-top: 1px solid var(--b1); flex-shrink: 0;
@@ -464,6 +469,15 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
   </div>
 
   <header>
+    <svg width="18" height="18" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0">
+      <g fill="none" stroke="#FAFAF7" stroke-width="6" stroke-linecap="round">
+        <path d="M 12 24 L 12 18 Q 12 12 18 12 L 24 12"/>
+        <path d="M 40 12 L 46 12 Q 52 12 52 18 L 52 24"/>
+        <path d="M 52 40 L 52 46 Q 52 52 46 52 L 40 52"/>
+        <path d="M 24 52 L 18 52 Q 12 52 12 46 L 12 40"/>
+      </g>
+      <circle cx="32" cy="32" r="7.5" fill="#2E8C9E"/>
+    </svg>
     <span class="header-logo">vis·à·vision</span>
     <h1>Website-Assistent</h1>
     <span class="badge badge-preview" id="badge-preview">Vorschau: ${previewsLeft} übrig</span>
@@ -484,7 +498,9 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
         <button class="btn-select" id="btn-multiselect" onclick="toggleMultiSelect()" title="Mehrere Bereiche gleichzeitig auswählen">Mehrfach-Auswahl</button>
         <button class="btn-select" id="btn-select" onclick="toggleSelection()" title="Bereich auf der Seite anklicken">Bereich wählen</button>
       </div>
-      <iframe id="preview" src="/preview" title="Vorschau"></iframe>
+      <div class="preview-viewport" id="preview-viewport">
+        <iframe id="preview" src="/preview" title="Vorschau"></iframe>
+      </div>
       <div class="preview-footer">
         <button class="btn-publish" id="btn-publish" onclick="publish()" ${publishesLeft <= 0 ? 'disabled' : ''}>
           Jetzt veröffentlichen (${publishesLeft} übrig)
@@ -570,10 +586,37 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
     function toggleChat() {
       chatCollapsed = !chatCollapsed
       document.getElementById('chat-panel').classList.toggle('collapsed', chatCollapsed)
-      var icon = document.getElementById('chat-toggle-icon')
-      icon.setAttribute('points', chatCollapsed ? '15,18 9,12 15,6' : '9,18 15,12 9,6')
+      // Pfeil wirklich drehen: points liegt auf der <polyline>, nicht am <svg>
+      var poly = document.getElementById('chat-toggle-icon').querySelector('polyline')
+      poly.setAttribute('points', chatCollapsed ? '15,18 9,12 15,6' : '9,18 15,12 9,6')
       document.getElementById('chat-toggle-btn').title = chatCollapsed ? 'Chat einblenden' : 'Chat ausblenden'
     }
+
+    // ---- Vorschau = echte Besucheransicht ----
+    // Das iframe rendert IMMER in voller Desktop-Breite (mind. 1280px) und wird
+    // bei offenem Chat proportional verkleinert — der Kunde sieht nie ein
+    // gestauchtes Layout, sondern exakt das, was Besucher sehen.
+    var BASE_PREVIEW_WIDTH = 1280
+    function fitPreview() {
+      var vp = document.getElementById('preview-viewport')
+      var frame = document.getElementById('preview')
+      if (!vp || !frame || vp.clientWidth === 0) return
+      var base = Math.max(BASE_PREVIEW_WIDTH, vp.clientWidth)
+      var scale = Math.min(1, vp.clientWidth / base)
+      frame.style.width = base + 'px'
+      frame.style.height = Math.round(vp.clientHeight / scale) + 'px'
+      frame.style.transform = 'scale(' + scale + ')'
+      var label = document.querySelector('.preview-header-label')
+      if (label) label.textContent = scale < 0.995
+        ? 'ENTWURF — echte Besucheransicht, verkleinert auf ' + Math.round(scale * 100) + ' %'
+        : 'ENTWURF — nur du siehst das'
+    }
+    if (window.ResizeObserver) {
+      new ResizeObserver(fitPreview).observe(document.getElementById('preview-viewport'))
+    } else {
+      window.addEventListener('resize', fitPreview)
+    }
+    fitPreview()
 
     // ---- Rechteck-Markierung ----
     function toggleRect() { rectActive ? endRect() : startRect() }
