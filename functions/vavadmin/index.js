@@ -408,6 +408,7 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
     /* ── Mobile: nur Chat, kein Preview ── */
     @media (max-width: 768px) {
       header { padding: 0 14px; height: 46px; gap: 8px; }
+      header h1 { display: none; }
       .badge { display: none !important; }
       #chat-toggle-btn { display: none !important; }
       .preview-panel { display: none !important; }
