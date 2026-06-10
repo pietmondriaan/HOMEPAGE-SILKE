@@ -76,11 +76,11 @@ function loginPage({ resetOk = false }) {
     .page-footer { position: fixed; bottom: 12px; right: 0; width: 440px; text-align: center; font-size: 10px; color: rgba(51,65,85,.6); }
     @media (max-width: 768px) { .page-footer { width: 100%; right: auto; left: 0; } }
   </style>
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+  <script type="module" src="/spline/spline-viewer.js"></script>
 </head>
 <body>
   <div class="spline-panel">
-    <spline-viewer url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" loading-anim-type="spinner-big-dark"></spline-viewer>
+    <spline-viewer url="/spline/robot-scene.splinecode" loading-anim-type="spinner-big-dark"></spline-viewer>
   </div>
   <div class="login-panel">
   <div class="card">
