@@ -259,6 +259,18 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
     .msg-loading span { display: inline-block; width: 6px; height: 6px; background: #94a3b8; border-radius: 50%; margin: 0 2px; animation: blink 1.4s infinite; }
     .msg-loading span:nth-child(2) { animation-delay: .2s; }
     .msg-loading span:nth-child(3) { animation-delay: .4s; }
+    .msg-actions { display: flex; gap: 6px; margin-top: 9px; flex-wrap: wrap; }
+    .msg-actions button {
+      border: none; border-radius: 7px; padding: 7px 12px; font-size: 12px;
+      font-weight: 600; cursor: pointer; font-family: inherit; transition: opacity .15s;
+    }
+    .msg-actions button:hover:not(:disabled) { opacity: .85; }
+    .msg-actions button:disabled { opacity: .45; cursor: default; }
+    .msg-actions .act-publish { background: #059669; color: #fff; }
+    .msg-actions .act-preview { background: #e2e8f0; color: #1e293b; }
+    .msg-actions .act-discard { background: none; color: #991b1b; border: 1px solid #fecaca; font-weight: 500; }
+    .act-preview-link { display: none; }
+    @media (max-width: 768px) { .act-preview-link { display: inline-block; } }
     @keyframes blink { 0%,80%,100%{opacity:.2;transform:scale(.8)} 40%{opacity:1;transform:scale(1)} }
     @keyframes spin { to { transform: rotate(360deg); } }
     .chat-input-area { background: var(--s1); border-top: 1px solid var(--b1); padding: 12px; flex-shrink: 0; }
@@ -756,6 +768,34 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
     }
     function reloadPreview() { document.getElementById('preview').src = '/preview?' + Date.now() }
 
+    // VAV-16: Aktionen direkt unter der Erfolgsmeldung — damit funktioniert
+    // Veröffentlichen auch mobil (dort ist die Vorschau-Spalte ausgeblendet).
+    function addUpdateActions(msgEl) {
+      var row = document.createElement('div')
+      row.className = 'msg-actions'
+      var btnPrev = document.createElement('button')
+      btnPrev.className = 'act-preview act-preview-link'
+      btnPrev.textContent = 'Vorschau ansehen'
+      btnPrev.onclick = function() { window.open('/preview', '_blank') }
+      var btnPub = document.createElement('button')
+      btnPub.className = 'act-publish'
+      btnPub.textContent = 'Passt — veröffentlichen'
+      btnPub.onclick = async function() {
+        row.querySelectorAll('button').forEach(function(b) { b.disabled = true })
+        await publish()
+      }
+      var btnDis = document.createElement('button')
+      btnDis.className = 'act-discard'
+      btnDis.textContent = 'Verwerfen'
+      btnDis.onclick = async function() {
+        row.querySelectorAll('button').forEach(function(b) { b.disabled = true })
+        await discard()
+      }
+      row.appendChild(btnPrev); row.appendChild(btnPub); row.appendChild(btnDis)
+      msgEl.appendChild(row)
+      document.getElementById('messages').scrollTop = 99999
+    }
+
     function updateBadges() {
       var prevBadge = document.getElementById('badge-preview')
       var pubBadge = document.getElementById('badge-publish')
@@ -809,7 +849,8 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
           previewsLeft = data.previewsLeft; updateBadges()
           lastSummary = data.summary || ''
           var confirmMsg = '✓ ' + (data.summary ? data.summary + ' — schau links in die Vorschau.' : 'Vorschau aktualisiert. Links siehst du die Änderung.')
-          addMessage(confirmMsg, 'ok')
+          var okEl = addMessage(confirmMsg, 'ok')
+          addUpdateActions(okEl)
           conversationHistory.push({ role: 'model', text: confirmMsg })
           reloadPreview(); conversationHistory = []
         } else if (res.status === 422) {
@@ -921,7 +962,9 @@ function adminPanel(previewsLeft, publishesLeft, mustChangePassword) {
       var data = await res.json()
       if (res.ok) {
         previewsLeft = data.previewsLeft; updateBadges()
-        addMessage('✓ ' + data.message, 'ok'); reloadPreview()
+        var upEl = addMessage('✓ ' + data.message, 'ok')
+        addUpdateActions(upEl)
+        reloadPreview()
       } else { addMessage('Fehler: ' + (data.message || 'Upload fehlgeschlagen'), 'err') }
     }
     var inputBox = document.getElementById('input-box')
