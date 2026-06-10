@@ -1,1 +1,9 @@
+# vavadmin läuft auf dem zentralen Vis-à-Vision-Worker.
+# silkeburkhardt.at-Zone ist bei Cloudflare noch "pending" → admin.silkeburkhardt.at
+# kann nicht auflösen. Daher läuft silkes Admin über die AKTIVE vis-a-vision.com-Zone:
+# silke.vis-a-vision.com (Workers Custom Domain → vav-admin, Tenant=silke).
+/vavadmin https://silke.vis-a-vision.com/vavadmin 302
+/vavadmin/* https://silke.vis-a-vision.com/vavadmin/:splat 302
+/preview https://silke.vis-a-vision.com/preview 302
+/preview/* https://silke.vis-a-vision.com/preview/:splat 302
 /* /index.html 200
