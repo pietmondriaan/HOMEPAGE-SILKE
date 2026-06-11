@@ -74,6 +74,7 @@ export const DEFAULT_CONTENT = {
     phone: '+43 680 2193 868',
     email: 'office@silkeburkhardt.at',
     address: 'St. Michael ob Bleiburg, Kärnten',
+    hours: '',
   },
   footer: {
     imprint_heading: 'Impressum',
@@ -127,6 +128,7 @@ export const FIELD_META = {
   'contact.phone':   { label: 'Telefonnummer', type: 'tel', max: 40 },
   'contact.email':   { label: 'E-Mail-Adresse', type: 'email', max: 80 },
   'contact.address': { label: 'Adresse/Einzugsgebiet', type: 'string', max: 160 },
+  'contact.hours':   { label: 'Öffnungszeiten', type: 'string', max: 120 },
 
   'footer.copyright':  { label: 'Fußzeile — Copyright', type: 'string', max: 120 },
   'footer.extra_line': { label: 'Fußzeile — Zusatzzeile', type: 'string', max: 160 },

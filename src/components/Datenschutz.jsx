@@ -28,10 +28,26 @@ export default function Datenschutz() {
             </h3>
             <p>
               Diese Website verarbeitet keine personenbezogenen Daten über Formulare, setzt keine
-              Cookies und kein Tracking ein. Beim Aufruf der Website verarbeitet der
+              Cookies und keine Werbe-Tracker ein. Beim Aufruf der Website verarbeitet der
               Hosting-Provider technisch notwendige Server-Logdaten (IP-Adresse, Zeitpunkt,
               abgerufene Seite) zur Auslieferung und Sicherheit. Diese Daten werden nicht mit
               anderen Daten zusammengeführt und nach kurzer Zeit gelöscht.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-serif font-normal text-azure text-lg mb-2">
+              Reichweitenmessung (anonym &amp; cookielos)
+            </h3>
+            <p>
+              Zur Pflege und Verbesserung der Website wird anonym und cookielos erfasst, wie oft
+              Seiten und einzelne Seitenbereiche aufgerufen werden. Dabei werden keine Cookies
+              gesetzt und keine personenbezogenen Daten — insbesondere keine IP-Adressen —
+              gespeichert, sondern ausschließlich zusammengefasste Zählerstände. Die Messung erfolgt
+              über die technische Infrastruktur des Website-Dienstleisters vis·à·vision (Michael
+              Pietrowski) auf Cloudflare (EU); eine Weitergabe an sonstige Dritte oder zu Werbezwecken
+              findet nicht statt. Rechtsgrundlage ist das berechtigte Interesse an einer
+              datensparsamen Reichweitenmessung gemäß Art. 6 Abs. 1 lit. f DSGVO.
             </p>
           </div>
 

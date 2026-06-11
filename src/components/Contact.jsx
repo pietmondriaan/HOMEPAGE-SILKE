@@ -88,6 +88,22 @@ export default function Contact() {
               </div>
             </div>
 
+            {/* Öffnungszeiten — nur sichtbar, wenn gepflegt (via vavadmin) */}
+            {content.contact.hours ? (
+            <div className="flex items-start gap-4 p-5 rounded-2xl border border-line bg-surface">
+              <div className="w-10 h-10 rounded-full bg-petrol/12 flex items-center justify-center shrink-0 text-petrol">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-[11px] font-medium tracking-wide text-ink-soft uppercase mb-0.5">Öffnungszeiten</p>
+                <p data-cms="contact.hours" className="text-ink text-base font-normal">{content.contact.hours}</p>
+              </div>
+            </div>
+            ) : null}
+
             {/* Verfügbarkeit */}
             <div className="flex items-start gap-4 p-5 rounded-2xl border border-line bg-surface">
               <div className="w-10 h-10 rounded-full bg-petrol/12 flex items-center justify-center shrink-0 text-petrol">
