@@ -10,7 +10,7 @@ export default function Datenschutz() {
           <div>
             <h3 className="font-serif font-normal text-azure text-lg mb-2">Verantwortliche</h3>
             <p>
-              Mag. Silke Ursula Burkhardt, St. Michael ob Bleiburg 130/1, 9143 St. Michael ob
+              Mag. Silke Burkhardt, St. Michael ob Bleiburg 130/1, 9143 St. Michael ob
               Bleiburg, Österreich.{' '}
               E-Mail:{' '}
               <a

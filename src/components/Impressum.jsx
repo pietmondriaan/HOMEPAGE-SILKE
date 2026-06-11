@@ -9,7 +9,7 @@ export default function Impressum() {
 
           <div>
             <p className="font-medium text-ink mb-1">Medieninhaberin &amp; für den Inhalt verantwortlich:</p>
-            <p>Mag. Silke Ursula Burkhardt</p>
+            <p>Mag. Silke Burkhardt</p>
             <p>St. Michael ob Bleiburg 130/1, 9143 St. Michael ob Bleiburg, Österreich</p>
             <p>
               Telefon:{' '}
