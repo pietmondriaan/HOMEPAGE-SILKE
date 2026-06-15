@@ -30,3 +30,6 @@ KONTEXT-FUER-CLAUDE.md
 
 # Wrangler local secrets — NIE committen
 .dev.vars
+
+# Build-Output (wird beim Deploy frisch gebaut) — nicht tracken
+dist/
