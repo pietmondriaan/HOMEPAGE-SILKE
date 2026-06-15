@@ -100,14 +100,14 @@ export default function Services() {
             className="font-serif font-normal text-azure leading-[1.12] mb-5"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', textWrap: 'balance' }}
           >
-            Fünf Leistungen für Fach- und Führungskräfte.
+            Meine Leistungen für Fach- und Führungskräfte.
           </h2>
           <p className="text-base leading-[1.75] text-ink-soft">
             Mein Angebot richtet sich an Träger, Teams und Leitungskräfte der sozialen Arbeit — abgestimmt auf Ihren konkreten Bedarf.
           </p>
         </div>
 
-        {/* Cards — 5-card Grid */}
+        {/* Cards — Grid passt sich an die Anzahl der Leistungen an */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-5">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />

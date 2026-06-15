@@ -72,7 +72,7 @@ export const DEFAULT_CONTENT = {
     heading: 'Kontakt',
     intro: 'Ich freue mich auf Ihre Nachricht. Das Erstgespräch ist kostenlos und unverbindlich.',
     phone: '+43 680 2193 868',
-    email: 'office@silkeburkhardt.at',
+    email: 'si.burkhardt@outlook.com',
     address: 'St. Michael ob Bleiburg, Kärnten',
     hours: '',
   },
