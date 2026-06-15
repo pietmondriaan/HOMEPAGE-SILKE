@@ -59,6 +59,15 @@ export const DEFAULT_CONTENT = {
       description: 'Gemeinsam stark. Entwicklungsprozesse für Teams und Organisationen, die nachhaltig wirken.',
     },
   ],
+  sektionen: {
+    angebot_eyebrow: 'Angebot',
+    angebot_heading: 'Meine Leistungen für Fach- und Führungskräfte.',
+    angebot_intro: 'Mein Angebot richtet sich an Träger, Teams und Leitungskräfte der sozialen Arbeit — abgestimmt auf Ihren konkreten Bedarf.',
+    hero_cta_secondary: 'Meine Angebote',
+    ueber_heading: '24 Jahre Praxis. Ein klarer Blick auf das, was Teams trägt.',
+    qualifikationen_heading: 'Qualifikationen',
+    kontakt_heading: 'Lassen Sie uns ins Gespräch kommen.',
+  },
   aktuelles: {
     enabled: true,
     eyebrow: 'Aktueller Impuls',
@@ -115,6 +124,14 @@ export const FIELD_META = {
   'services.*.title':       { label: 'Angebot — Titel', type: 'string', max: 70 },
   'services.*.description': { label: 'Angebot — Beschreibung', type: 'text', max: 400 },
 
+  'sektionen.angebot_eyebrow':         { label: 'Angebot — kleine Zeile oben', type: 'string', max: 40 },
+  'sektionen.angebot_heading':         { label: 'Angebot — Überschrift', type: 'string', max: 80 },
+  'sektionen.angebot_intro':           { label: 'Angebot — Einleitung', type: 'text', max: 300 },
+  'sektionen.hero_cta_secondary':      { label: 'Startbereich — zweiter Button', type: 'string', max: 30 },
+  'sektionen.ueber_heading':           { label: 'Über mich — große Überschrift', type: 'string', max: 80 },
+  'sektionen.qualifikationen_heading': { label: 'Über mich — Überschrift Qualifikationen', type: 'string', max: 40 },
+  'sektionen.kontakt_heading':         { label: 'Kontakt — große Überschrift', type: 'string', max: 80 },
+
   'aktuelles.enabled':   { label: 'Aktuelles — sichtbar', type: 'bool' },
   'aktuelles.eyebrow':   { label: 'Aktuelles — kleine Zeile', type: 'string', max: 40 },
   'aktuelles.heading':   { label: 'Aktuelles — Überschrift', type: 'string', max: 90 },
@@ -139,6 +156,7 @@ export const FIELD_META = {
 export const SECTION_META = {
   navigation:  { label: 'Menüleiste', editable: true },
   hero:        { label: 'Startbereich', editable: true },
+  sektionen:   { label: 'Sektions-Überschriften', editable: true },
   angebot:     { label: 'Angebote', editable: true },
   'ueber-mich': { label: 'Über mich', editable: true },
   arbeitsweise: { label: 'Arbeitsweise', editable: false },

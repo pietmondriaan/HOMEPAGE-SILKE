@@ -1,10 +1,12 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useContent } from '../hooks/useContent'
+import Rich from './Rich'
 
 export default function About() {
   const content = useContent()
   const stats = content.about.stats
   const qualifications = content.about.qualifications
+  const sektionen = content.sektionen
   const [ref, isVisible] = useScrollAnimation()
 
   return (
@@ -22,10 +24,11 @@ export default function About() {
               {content.about.heading}
             </p>
             <h2
+              data-cms="sektionen.ueber_heading"
               className="font-serif font-normal text-azure leading-[1.16] mb-9"
               style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', textWrap: 'balance' }}
             >
-              24 Jahre Praxis. Ein klarer Blick auf das, was Teams trägt.
+              {sektionen.ueber_heading}
             </h2>
 
             <div className="space-y-5 border-t border-line pt-7">
@@ -45,11 +48,11 @@ export default function About() {
           {/* Rechte Spalte — Text + Qualifikationen */}
           <div>
             <div className="space-y-4 text-ink text-base leading-[1.8]">
-              <p data-cms="about.text">{content.about.text}</p>
+              <Rich as="p" data-cms="about.text" text={content.about.text} />
             </div>
 
-            <p className="font-sans text-[10px] font-semibold tracking-[0.2em] text-petrol uppercase mt-10 mb-4">
-              Qualifikationen
+            <p data-cms="sektionen.qualifikationen_heading" className="font-sans text-[10px] font-semibold tracking-[0.2em] text-petrol uppercase mt-10 mb-4">
+              {sektionen.qualifikationen_heading}
             </p>
             <div className="grid sm:grid-cols-2 gap-2.5">
               {qualifications.map((qual, index) => (

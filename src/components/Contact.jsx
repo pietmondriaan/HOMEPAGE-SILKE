@@ -1,8 +1,10 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useContent } from '../hooks/useContent'
+import Rich from './Rich'
 
 export default function Contact() {
   const content = useContent()
+  const sektionen = content.sektionen
   const [ref, isVisible] = useScrollAnimation()
 
   return (
@@ -31,15 +33,14 @@ export default function Contact() {
           </p>
 
           <h2
+            data-cms="sektionen.kontakt_heading"
             className="font-serif font-normal text-azure leading-[1.12] mb-6"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', textWrap: 'balance' }}
           >
-            Lassen Sie uns ins Gespräch kommen.
+            {sektionen.kontakt_heading}
           </h2>
 
-          <p data-cms="contact.intro" className="text-ink text-base leading-[1.75] mb-10">
-            {content.contact.intro}
-          </p>
+          <Rich as="p" data-cms="contact.intro" className="text-ink text-base leading-[1.75] mb-10" text={content.contact.intro} />
 
           <div className="grid sm:grid-cols-2 gap-4 text-left">
 

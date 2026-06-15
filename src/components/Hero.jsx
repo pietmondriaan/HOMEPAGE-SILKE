@@ -1,8 +1,10 @@
 import { useContent } from '../hooks/useContent'
+import Rich from './Rich'
 
 export default function Hero() {
   const content = useContent()
   const { hero } = content
+  const sektionen = content.sektionen
   return (
     <section data-cms-section="hero" className="relative overflow-hidden bg-canvas">
 
@@ -54,13 +56,13 @@ export default function Hero() {
               {hero.title}
             </h1>
 
-            <p
+            <Rich
+              as="p"
               data-cms="hero.subtitle"
               className="animate-fade-up text-base lg:text-lg font-light leading-[1.7] text-ink-soft mb-8 max-w-xl"
               style={{ animationDelay: '160ms' }}
-            >
-              {hero.subtitle}
-            </p>
+              text={hero.subtitle}
+            />
 
             <div
               className="animate-fade-up flex flex-wrap gap-3.5"
@@ -77,10 +79,11 @@ export default function Hero() {
                 </svg>
               </a>
               <a
+                data-cms="sektionen.hero_cta_secondary"
                 href="#angebot"
                 className="inline-flex items-center px-7 py-3.5 text-ink font-sans text-sm font-medium rounded-full border border-line hover:border-petrol hover:text-petrol transition-colors duration-[180ms]"
               >
-                Meine Angebote
+                {sektionen.hero_cta_secondary}
               </a>
             </div>
 

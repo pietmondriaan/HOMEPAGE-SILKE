@@ -1,5 +1,6 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useContent } from '../hooks/useContent'
+import Rich from './Rich'
 
 const SERVICE_ICONS = [
   (
@@ -64,9 +65,7 @@ function ServiceCard({ service, index }) {
         {service.title}
       </h3>
 
-      <p data-cms={"services." + index + ".description"} className="text-[14px] leading-[1.75] text-ink-soft flex-1">
-        {service.description}
-      </p>
+      <Rich as="p" data-cms={"services." + index + ".description"} className="text-[14px] leading-[1.75] text-ink-soft flex-1" text={service.description} />
 
       <a href="#kontakt" className="mt-6 flex items-center gap-1.5 text-petrol text-[13px] font-sans font-medium">
         <span>Anfragen</span>
@@ -81,6 +80,7 @@ function ServiceCard({ service, index }) {
 export default function Services() {
   const content = useContent()
   const services = content.services
+  const sektionen = content.sektionen
   const [headerRef, headerVisible] = useScrollAnimation()
 
   return (
@@ -93,18 +93,17 @@ export default function Services() {
           ref={headerRef}
           className={`max-w-xl mb-12 lg:mb-16 animate-on-scroll ${headerVisible ? 'is-visible' : ''}`}
         >
-          <p className="font-sans text-[10px] font-medium tracking-[0.2em] text-petrol uppercase mb-5">
-            Angebot
+          <p data-cms="sektionen.angebot_eyebrow" className="font-sans text-[10px] font-medium tracking-[0.2em] text-petrol uppercase mb-5">
+            {sektionen.angebot_eyebrow}
           </p>
           <h2
+            data-cms="sektionen.angebot_heading"
             className="font-serif font-normal text-azure leading-[1.12] mb-5"
             style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)', textWrap: 'balance' }}
           >
-            Meine Leistungen für Fach- und Führungskräfte.
+            {sektionen.angebot_heading}
           </h2>
-          <p className="text-base leading-[1.75] text-ink-soft">
-            Mein Angebot richtet sich an Träger, Teams und Leitungskräfte der sozialen Arbeit — abgestimmt auf Ihren konkreten Bedarf.
-          </p>
+          <Rich as="p" data-cms="sektionen.angebot_intro" className="text-base leading-[1.75] text-ink-soft" text={sektionen.angebot_intro} />
         </div>
 
         {/* Cards — Grid passt sich an die Anzahl der Leistungen an */}

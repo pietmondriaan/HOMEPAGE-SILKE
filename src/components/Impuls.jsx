@@ -1,5 +1,6 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useContent } from '../hooks/useContent'
+import Rich from './Rich'
 
 // Heutiges Datum in Europe/Vienna als YYYY-MM-DD (en-CA liefert ISO-Format)
 function todayVienna() {
@@ -35,9 +36,7 @@ export default function Impuls() {
             {aktuelles.heading}
           </h2>
 
-          <p data-cms="aktuelles.text" className="text-base leading-[1.75] text-ink mb-10 max-w-3xl">
-            {aktuelles.text}
-          </p>
+          <Rich as="p" data-cms="aktuelles.text" className="text-base leading-[1.75] text-ink mb-10 max-w-3xl" text={aktuelles.text} />
 
           {aktuelles.image && (
             <img
