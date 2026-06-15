@@ -8,8 +8,11 @@ export function toHtml(text) {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    // absolutes font-weight:700 statt des CSS-'bolder' — Tailwind-Preflight setzt
+    // strong{font-weight:bolder}, was in font-light-Kontexten (300) nur 400 ergibt
+    // und damit NICHT sichtbar fett ist. 700 wirkt in jedem Kontext.
+    .replace(/\*\*([^*]+)\*\*/g, '<strong style="font-weight:700">$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em style="font-style:italic">$1</em>')
 }
 
 export default function Rich({ as: Tag = 'span', text = '', ...props }) {
