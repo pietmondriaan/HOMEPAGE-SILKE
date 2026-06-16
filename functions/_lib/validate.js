@@ -13,6 +13,8 @@ const ARRAY_REPLACE_PATHS = new Set([
   'services',
   'about.stats',
   'about.qualifications',
+  'events.items',
+  'highlights',
 ])
 
 // Kontrollzeichen außer \n (U+000A) entfernen
