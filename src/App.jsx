@@ -4,7 +4,9 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 import About from './components/About'
 import Approach from './components/Approach'
+import Highlights from './components/Highlights'
 import Impuls from './components/Impuls'
+import Events from './components/Events'
 import Faq from './components/Faq'
 import Contact from './components/Contact'
 import Impressum from './components/Impressum'
@@ -44,7 +46,9 @@ export default function App() {
         <Services />
         <About />
         <Approach />
+        <Highlights />
         <Impuls />
+        <Events />
         <Faq />
         <Contact />
       </main>
