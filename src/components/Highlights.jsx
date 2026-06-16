@@ -68,20 +68,17 @@ export default function Highlights() {
 
   if (!Array.isArray(highlights)) return null
 
-  const active = highlights.filter((h) => h?.aktiv === true).slice(0, 3)
-  if (active.length === 0) return null
-
-  // preserve original indices for data-cms paths
   const activeWithIndex = highlights
     .map((h, i) => ({ item: h, index: i }))
     .filter(({ item }) => item?.aktiv === true)
     .slice(0, 3)
+  if (activeWithIndex.length === 0) return null
 
   return (
     <section id="highlights" data-cms-section="highlights" className="py-20 lg:py-28 bg-petrol-pale">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col gap-6">
         {activeWithIndex.map(({ item, index }) => (
-          <HighlightCard key={index} item={item} index={index} />
+          <HighlightCard key={item.titel || index} item={item} index={index} />
         ))}
       </div>
     </section>

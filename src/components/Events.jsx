@@ -53,7 +53,7 @@ function EventCard({ item, index }) {
               <img
                 key={i}
                 src={src}
-                alt=""
+                alt={item.titel}
                 data-cms={'events.items.' + index + '.bild' + (i + 2)}
                 className="w-20 h-16 object-cover rounded-lg"
               />
@@ -102,7 +102,7 @@ export default function Events() {
         {/* Cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {items.map((item, index) => (
-            <EventCard key={index} item={item} index={index} />
+            <EventCard key={item.titel || index} item={item} index={index} />
           ))}
         </div>
       </div>
