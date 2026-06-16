@@ -6,4 +6,6 @@
 /vavadmin/* https://silke.vis-a-vision.com/vavadmin/:splat 302
 /preview https://silke.vis-a-vision.com/preview 302
 /preview/* https://silke.vis-a-vision.com/preview/:splat 302
+/avi https://silke.vis-a-vision.com/avi 302
+/avi/* https://silke.vis-a-vision.com/avi/:splat 302
 /* /index.html 200
