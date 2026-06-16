@@ -77,6 +77,13 @@ export const DEFAULT_CONTENT = {
     cta_text: 'Impuls anfragen',
     expires: '',
   },
+  events: {
+    aktiv: false,
+    eyebrow: 'Aktuelles',
+    heading: 'Veranstaltungen & Rückblick',
+    items: [],
+  },
+  highlights: [],
   contact: {
     heading: 'Kontakt',
     intro: 'Ich freue mich auf Ihre Nachricht. Das Erstgespräch ist kostenlos und unverbindlich.',
@@ -149,6 +156,24 @@ export const FIELD_META = {
 
   'footer.copyright':  { label: 'Fußzeile — Copyright', type: 'string', max: 120 },
   'footer.extra_line': { label: 'Fußzeile — Zusatzzeile', type: 'string', max: 160 },
+
+  'events.aktiv':             { label: 'Veranstaltungen — sichtbar', type: 'bool' },
+  'events.eyebrow':           { label: 'Veranstaltungen — kleine Zeile', type: 'string', max: 60 },
+  'events.heading':           { label: 'Veranstaltungen — Überschrift', type: 'string', max: 80 },
+  'events.items.*.titel':     { label: 'Veranstaltung — Titel', type: 'string', max: 80 },
+  'events.items.*.text':      { label: 'Veranstaltung — Text', type: 'text', max: 600 },
+  'events.items.*.datum':     { label: 'Veranstaltung — Datum', type: 'string', max: 40 },
+  'events.items.*.bild':      { label: 'Veranstaltung — Hauptbild', type: 'image' },
+  'events.items.*.bild2':     { label: 'Veranstaltung — Bild 2', type: 'image' },
+  'events.items.*.bild3':     { label: 'Veranstaltung — Bild 3', type: 'image' },
+  'events.items.*.bild4':     { label: 'Veranstaltung — Bild 4', type: 'image' },
+
+  'highlights.*.aktiv':      { label: 'Highlight — sichtbar', type: 'bool' },
+  'highlights.*.eyebrow':    { label: 'Highlight — kleine Zeile', type: 'string', max: 60 },
+  'highlights.*.titel':      { label: 'Highlight — Titel', type: 'string', max: 80 },
+  'highlights.*.text':       { label: 'Highlight — Text', type: 'text', max: 500 },
+  'highlights.*.bild':       { label: 'Highlight — Bild', type: 'image' },
+  'highlights.*.cta_label':  { label: 'Highlight — Button-Text', type: 'string', max: 40 },
 }
 
 // Sektionen für Markierung/Bereichs-Chips. editable:false = Markierung erkennt
