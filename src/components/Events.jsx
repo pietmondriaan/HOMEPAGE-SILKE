@@ -1,6 +1,7 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useContent } from '../hooks/useContent'
 import Rich from './Rich'
+import CmsMedia from './CmsMedia'
 
 function EventCard({ item, index }) {
   const [ref, isVisible] = useScrollAnimation(0.1)
@@ -15,7 +16,7 @@ function EventCard({ item, index }) {
       style={{ transitionDelay: `${index * 80}ms` }}
     >
       {item.bild && (
-        <img
+        <CmsMedia
           src={item.bild}
           alt={item.titel}
           data-cms={'events.items.' + index + '.bild'}
@@ -50,7 +51,7 @@ function EventCard({ item, index }) {
         {(item.bild2 || item.bild3 || item.bild4) && (
           <div className="flex gap-2 mt-5">
             {[item.bild2, item.bild3, item.bild4].filter(Boolean).map((src, i) => (
-              <img
+              <CmsMedia
                 key={i}
                 src={src}
                 alt={item.titel}

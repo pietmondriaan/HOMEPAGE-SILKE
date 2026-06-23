@@ -1,6 +1,7 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useContent } from '../hooks/useContent'
 import Rich from './Rich'
+import CmsMedia from './CmsMedia'
 
 function HighlightCard({ item, index }) {
   const [ref, isVisible] = useScrollAnimation(0.1)
@@ -16,7 +17,7 @@ function HighlightCard({ item, index }) {
     >
       {item.bild && (
         <div className="lg:w-2/5 flex-shrink-0">
-          <img
+          <CmsMedia
             src={item.bild}
             alt={item.titel}
             data-cms={'highlights.' + index + '.bild'}
